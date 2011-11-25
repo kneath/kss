@@ -39,4 +39,56 @@ The remainder of your styles can be organized at your discretion.
 
 ## Documentation
 
+Unlike TomDoc, not every CSS rule should be documented. You should document a rule declaration when the rule can accurately describe a visual UI element in the styleguide. Each element should have one documentation block describing that particular UI element's various states.
+
+KSS documentation is hierarchical in nature — any documentation blocks at a styleguide hierarchy apply to the documentation blocks within that level.
+
+### Format
+
+The basic format for KSS documentation can be best explained in an example:
+
+    /*
+    A button suitable for giving stars to someone.
+
+    .stars-given - A highlight indicating you've already given a star.
+    .disabled    - Dims the button to indicate it cannot be used.
+
+    Styleguide 2.1.3
+    */
+    a.button.star{
+      ...
+    }
+    a.button.star.stars-given{
+      ...
+    }
+    a.button.star.disabled{
+      ...
+    }
+
+When using a preprocessor that supports it, use `//` to prefix your comment sections like so (SCSS example):
+
+    // A button suitable for giving stars to someone.
+    //
+    // .stars-given - A highlight indicating you've already given a star.
+    // .disabled    - Dims the button to indicate it cannot be used.
+    //
+    // Styleguide 2.1.3
+    a.button.star{
+      ...
+      &.star-given{
+        ...
+      }
+      &.disabled{
+        ...
+      }
+    }
+
+Each KSS documentation block consists of three parts: a description of what the element does or looks like, a list of modifier classes or pseudo-classes and how they modify the element, and a reference to the element's position in the styleguide.
+
+### The description section
+
+### The modifiers section
+
+### The styleguide section
+
 ## Styleguide
