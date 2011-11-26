@@ -47,41 +47,45 @@ KSS documentation is hierarchical in nature — any documentation blocks at a st
 
 The basic format for KSS documentation can be best explained in an example:
 
-    /*
-    A button suitable for giving stars to someone.
+```css
+/*
+A button suitable for giving stars to someone.
 
-    .stars-given - A highlight indicating you've already given a star.
-    .disabled    - Dims the button to indicate it cannot be used.
+.stars-given - A highlight indicating you've already given a star.
+.disabled    - Dims the button to indicate it cannot be used.
 
-    Styleguide 2.1.3
-    */
-    a.button.star{
-      ...
-    }
-    a.button.star.stars-given{
-      ...
-    }
-    a.button.star.disabled{
-      ...
-    }
+Styleguide 2.1.3
+*/
+a.button.star{
+  ...
+}
+a.button.star.stars-given{
+  ...
+}
+a.button.star.disabled{
+  ...
+}
+```
 
-When using a preprocessor that supports it, use `//` to prefix your comment sections like so (SCSS example):
+When using a preprocessor that supports the functionality, use `//` to prefix your comment sections like so (SCSS example):
 
-    // A button suitable for giving stars to someone.
-    //
-    // .stars-given - A highlight indicating you've already given a star.
-    // .disabled    - Dims the button to indicate it cannot be used.
-    //
-    // Styleguide 2.1.3
-    a.button.star{
-      ...
-      &.star-given{
-        ...
-      }
-      &.disabled{
-        ...
-      }
-    }
+```scss
+// A button suitable for giving stars to someone.
+//
+// .stars-given - A highlight indicating you've already given a star.
+// .disabled    - Dims the button to indicate it cannot be used.
+//
+// Styleguide 2.1.3
+a.button.star{
+  ...
+  &.star-given{
+    ...
+  }
+  &.disabled{
+    ...
+  }
+}
+```
 
 Each KSS documentation block consists of three parts: a description of what the element does or looks like, a list of modifier classes or pseudo-classes and how they modify the element, and a reference to the element's position in the styleguide.
 
