@@ -37,7 +37,7 @@ The remainder of your styles can be organized at your discretion.
         ├── forms.scss
         └── markdown.scss
 
-## Documentation
+## Style Documentation
 
 Unlike TomDoc, not every CSS rule should be documented. You should document a rule declaration when the rule can accurately describe a visual UI element in the styleguide. Each element should have one documentation block describing that particular UI element's various states.
 
@@ -118,5 +118,9 @@ To describe the status of a set of rules, you should prefix the description with
 ### The modifiers section
 
 ### The styleguide section
+
+## Preprocessor Variable Documentation
+
+## Preprocessor Helper Documentation
 
 ## Styleguide
