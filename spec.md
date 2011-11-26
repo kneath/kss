@@ -51,8 +51,10 @@ The basic format for KSS documentation can be best explained in an example:
 /*
 A button suitable for giving stars to someone.
 
-.stars-given - A highlight indicating you've already given a star.
-.disabled    - Dims the button to indicate it cannot be used.
+:hover             - Subtle hover highlight.
+.stars-given       - A highlight indicating you've already given a star.
+.stars-given:hover - Subtle hover highlight on top of stars-given styling.
+.disabled          - Dims the button to indicate it cannot be used.
 
 Styleguide 2.1.3
 */
@@ -72,8 +74,10 @@ When using a preprocessor that supports the functionality, use `//` to prefix yo
 ```scss
 // A button suitable for giving stars to someone.
 //
-// .stars-given - A highlight indicating you've already given a star.
-// .disabled    - Dims the button to indicate it cannot be used.
+// :hover             - Subtle hover highlight.
+// .stars-given       - A highlight indicating you've already given a star.
+// .stars-given:hover - Subtle hover highlight on top of stars-given styling.
+// .disabled          - Dims the button to indicate it cannot be used.
 //
 // Styleguide 2.1.3
 a.button.star{
@@ -116,6 +120,13 @@ To describe the status of a set of rules, you should prefix the description with
 ```
 
 ### The modifiers section
+
+If the UI element you are documenting has multiple states or styles depending on added classes or pseudo-classes, you should document them in the modifiers section.
+
+// :hover             - Subtle hover highlight.
+// .stars-given       - A highlight indicating you've already given a star.
+// .stars-given:hover - Subtle hover highlight on top of stars-given styling.
+// .disabled          - Dims the button to indicate it cannot be used.
 
 ### The styleguide section
 
