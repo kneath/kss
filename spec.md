@@ -91,6 +91,30 @@ Each KSS documentation block consists of three parts: a description of what the 
 
 ### The description section
 
+The description should be plain sentences of what the CSS rule or hierarchy does and looks like. A good description gives guidance toward the application of elements the CSS rules style.
+
+CSS rules that depend on specific HTML structures should describe those structures using `<element#id.class:pseudo>` notation. For example:
+
+```scss
+// A feed of activity items. Within a <section.feed>, there should be many
+// <article>s which are the  feed items.
+```
+
+To describe the status of a set of rules, you should prefix the description with **Experimental** or **Deprecated**.
+
+**Experimental** indicates CSS rules that apply to experimental styling. This can be useful when testing out new designs before they launch (staff only), alternative layouts in A/B tests, or beta features.
+
+```scss
+// Experimental: An alternative signup button styling used in AB Test #195.
+```
+
+**Deprecated** indicates that the rule is slated for removal. Rules that are deprecated should not be used in future development. This description should explain what developers should do when encountering this style.
+
+```scss
+// Deprecated: Styling for legacy wikis. We'll drop support for these wikis on
+// July 13, 2007.
+```
+
 ### The modifiers section
 
 ### The styleguide section
