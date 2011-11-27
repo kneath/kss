@@ -56,7 +56,7 @@ A button suitable for giving stars to someone.
 .stars-given:hover - Subtle hover highlight on top of stars-given styling.
 .disabled          - Dims the button to indicate it cannot be used.
 
-Styleguide 2.1.3
+Styleguide 2.1.3.
 */
 a.button.star{
   ...
@@ -79,7 +79,7 @@ When using a preprocessor that supports the functionality, use `//` to prefix yo
 // .stars-given:hover - Subtle hover highlight on top of stars-given styling.
 // .disabled          - Dims the button to indicate it cannot be used.
 //
-// Styleguide 2.1.3
+// Styleguide 2.1.3.
 a.button.star{
   ...
   &.star-given{
@@ -123,12 +123,28 @@ To describe the status of a set of rules, you should prefix the description with
 
 If the UI element you are documenting has multiple states or styles depending on added classes or pseudo-classes, you should document them in the modifiers section.
 
+```scss
 // :hover             - Subtle hover highlight.
 // .stars-given       - A highlight indicating you've already given a star.
 // .stars-given:hover - Subtle hover highlight on top of stars-given styling.
 // .disabled          - Dims the button to indicate it cannot be used.
+```
 
 ### The styleguide section
+
+If the UI element you are documenting has an example in the styleguide, you should reference it using the "Styleguide [ref]" syntax.
+
+```scss
+// Styleguide 2.1.3.
+```
+
+References should be integer sections separated by periods. Each period denotes a hierarchy of the styleguide. Styleguide references can point to entire sections, a portion of the section, or a specific example.
+
+If there is no example, then you must note that there is no reference.
+
+```scss
+// No styleguide reference.
+```
 
 ## Preprocessor Variable Documentation
 
