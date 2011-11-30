@@ -146,8 +146,48 @@ If there is no example, then you must note that there is no reference.
 // No styleguide reference.
 ```
 
-## Preprocessor Variable Documentation
-
 ## Preprocessor Helper Documentation
+
+If you use a CSS preprocessor like SCSS or LESS, you should document all helper functions (sometimes called mixins).
+
+```scss
+// Creates a linear gradient background, from top to bottom.
+//
+// $start - The color hex at the top.
+// $end   - The color hex at the bottom.
+//
+// Compatible in IE6+, Firefox 2+, Safari 4+.
+@mixin gradient($start, $end){
+  background:$start;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+  background:-webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background:-moz-linear-gradient(top,  $start,  $end);
+}
+```
+
+Each documentation block should have a description section, parameters section, and compatibility section.  The description section follows the same guidelines as style documentation.
+
+### The parameters section
+
+If the mixin takes parameters, you should document each parameter and describe what sort of input it expects (hex, number, etc).
+
+```scss
+// $start - The color hex at the top.
+// $end   - The color hex at the bottom.
+```
+
+### The compatibility section
+
+You must list out what browsers this helper method is compatible in.
+
+```scss
+// Compatible in IE6+, Firefox 2+, Safari 4+.
+```
+
+If you do not know the compatibility, you should state as such.
+
+```scss
+// Compatibility untested.
+```
 
 ## Styleguide
