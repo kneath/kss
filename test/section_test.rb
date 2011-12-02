@@ -33,4 +33,8 @@ comment
     assert_equal 'Highlights when hovering.', @section.modifiers.first.description
   end
 
+  test "parses the styleguide reference" do
+    assert_equal '2.1.1', @section.section
+  end
+
 end

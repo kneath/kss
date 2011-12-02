@@ -8,9 +8,6 @@ module Kss
     # syntax (such as // or /* */).
     attr_reader :raw
 
-    # Public: Returns the section reference as a String (ex: "2.1.8").
-    attr_reader :section
-
     # Public: Returns the filename where this section is found.
     attr_reader :filename
 
@@ -29,6 +26,22 @@ module Kss
     # Returns an Array of comment Strings.
     def comment_sections
       @comment_sections ||= raw ? raw.split("\n\n") : []
+    end
+
+    # Public: The styleguide section for which this comment block references.
+    #
+    # Returns the section reference String (ex: "2.1.8").
+    def section
+      return @section unless @section.nil?
+
+      comment_sections.each do |text|
+        if text =~ /Styleguide \d/i
+          cleaned = text.strip.sub!(/\.$/, '') # Kill trailing period
+          @section = cleaned.match(/Styleguide (.+)/)[1]
+        end
+      end
+
+      @section
     end
 
     # Public: The description section of a styleguide comment block.
