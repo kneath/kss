@@ -16,10 +16,11 @@ module Kss
 
     # Public: Initialize a new Section
     #
-    # section_name - The section refernece as a String.
     # comment_text - The raw comment String, minus any comment syntax.
     # filename     - The filename as a String.
-    def initialize(section_name=nil, comment_text=nil, filename=nil)
+    def initialize(comment_text=nil, filename=nil)
+      @raw = comment_text
+      @filename = filename
     end
 
     # Splits up the raw comment text into comment sections that represent
@@ -34,7 +35,7 @@ module Kss
     #
     # Returns the description String.
     def description
-      sections.first
+      comment_sections.first
     end
 
     # Public: The modifiers section of a styleguide comment block.
@@ -43,9 +44,9 @@ module Kss
     def modifiers
       last_indent = nil
       modifiers = []
-      return modifiers unless sections[1]
+      return modifiers unless comment_sections[1]
 
-      sections[1].split("\n").each do |line|
+      comment_sections[1].split("\n").each do |line|
         next if line.strip.empty?
         indent = line.scan(/^\s*/)[0].to_s.size
 
@@ -53,7 +54,7 @@ module Kss
           modifiers.last.description += line.squeeze(" ")
         else
           modifier, desc = line.split(" - ")
-          modifiers << StyleguideModifier.new(modifier.strip, desc.strip) if modifier && desc
+          modifiers << Modifier.new(modifier.strip, desc.strip) if modifier && desc
         end
 
         last_indent = indent
