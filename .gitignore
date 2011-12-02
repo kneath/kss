@@ -1,3 +1,4 @@
 .bundle
 Gemfile.lock
 bin
+.sass-cache
