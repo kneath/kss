@@ -3,7 +3,7 @@ require 'sass'
 require 'kss/modifier'
 require 'kss/parser'
 require 'kss/section'
+require 'kss/version'
 
 module Kss
-  VERSION = "0.0.0"
 end
