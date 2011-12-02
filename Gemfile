@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "sass", "~> 3.1.11"
+gem "sass", ">= 3.1"
 
 group :test do
   gem "minitest", ">= 1.5.0"
