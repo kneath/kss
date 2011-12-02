@@ -39,19 +39,18 @@ end
 #
 
 begin
-  require 'kss/version'
   require 'mg'
   MG.new("kss.gemspec")
-
-  desc "Push a new version to Gemcutter and publish docs."
-  task :publish => "gem:publish" do
-    require File.dirname(__FILE__) + '/lib/kss/version'
-
-    sh "git tag v#{Kss::VERSION}"
-    sh "git push origin master --tags"
-    sh "git clean -fd"
-  end
 rescue LoadError
   warn "mg not available."
   warn "Install it with: gem install mg"
+end
+
+desc "Push a new version to Gemcutter and publish docs."
+task :publish => "gem:publish" do
+  require File.dirname(__FILE__) + '/lib/kss/version'
+
+  sh "git tag v#{Kss::VERSION}"
+  sh "git push origin master --tags"
+  sh "git clean -fd"
 end
