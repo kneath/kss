@@ -1,0 +1,9 @@
+require 'beer'
+
+loop do
+  begin
+    enjoy(:beer)
+  rescue
+    cab(:home)
+  end
+end
