@@ -7,3 +7,9 @@ Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology f
 ## Spec
 
 If you would like to learn more about the methodology and ideas behind Knyle Style Sheets, you should read SPEC.md. It contains the documenting syntax and styleguide guidelines.
+
+## Ruby Library
+
+This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS documented with KSS guidelines.
+
+The library is also fully TomDoc'd, completing the circle of life.
