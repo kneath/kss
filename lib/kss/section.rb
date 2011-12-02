@@ -36,7 +36,7 @@ module Kss
 
       comment_sections.each do |text|
         if text =~ /Styleguide \d/i
-          cleaned = text.strip.sub!(/\.$/, '') # Kill trailing period
+          cleaned = text.strip.sub(/\.$/, '') # Kill trailing period
           @section = cleaned.match(/Styleguide (.+)/)[1]
         end
       end
