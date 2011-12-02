@@ -12,6 +12,33 @@ If you would like to learn more about the methodology and ideas behind Knyle Sty
 
 This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS documented with KSS guidelines.
 
+To use the library, include it in your project as a gem from <https://rubygems.org/gems/kss>. Then, create a parser and explore your KSS.
+
+Example with documentation from SPEC.md:
+
+```ruby
+styleguide = Kss::Parser.new("#{RACK_ROOT}public/stylesheets")
+
+styleguide.section('2.1.1')
+  # => <Kss::Section>
+
+styleguide.section('2.1.1').description
+  # => "A button suitable for giving stars to someone."
+
+styleguide.section('2.1.1').modifiers.first
+  # => <Kss::Modifier>
+
+styleguide.section('2.1.1').modifiers.first.name
+  # => ':hover'
+
+styleguide.section('2.1.1').modifiers.first.class_name
+  # => 'pseudo-class-hover'
+
+styleguide.section('2.1.1').modifiers.first.first.description
+  # => 'Subtle hover highlight'
+
+```
+
 The library is also fully TomDoc'd, completing the circle of life.
 
 ## Development
