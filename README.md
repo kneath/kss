@@ -4,6 +4,12 @@ This is a ruby library for parsing KSS documented stylesheets and generating sty
 
 Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a CSS structure, documentation specification, and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
 
+### New here?
+
+* **[The Spec (What KSS is)](https://github.com/kneath/kss/blob/master/SPEC.md)**
+* **[Example KSS](https://github.com/kneath/kss/blob/master/test/fixtures/scss/buttons.scss)**
+* **[Example living styleguide](https://github.com/kneath/kss/tree/master/example)**
+
 ## Spec
 
 If you would like to learn more about the methodology and ideas behind Knyle Style Sheets, you should read SPEC.md. It contains the documenting syntax and styleguide guidelines.
