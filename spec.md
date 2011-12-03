@@ -191,3 +191,35 @@ If you do not know the compatibility, you should state as such.
 ```
 
 ## Styleguide
+
+In order to fully take advantage of KSS, you should create a living styleguide. A living styleguide is a *part of your application* and includes all of the CSS, Javascript, and layout the rest of your application does.
+
+### Organization
+
+The styleguide should be organized by numbered sections. These sections can go as deep as you like. Every element should have a numbered section to refer to. For example:
+
+    1. Buttons
+      1.1 Form Buttons
+        1.1.1 Generic form button
+        1.1.2 Special form button
+      1.2 Social buttons
+      1.3 Miscelaneous buttons
+    2. Form elements
+      2.1 Text fields
+      2.2 Radio and checkboxes
+    3. Text styling
+    4. Tables
+      4.1 Number tables
+      4.2 Diagram tables
+
+The goal here is to create an organizational structure that is flexible, while still rigid enough to be machine processed and referenced inside of documentation.
+
+### Example
+
+This styleguide is automatically generated from KSS documentation using the ruby library.
+
+![](http://share.kyleneath.com/captures/Styleguide_-_GitHub_Team-20111202-160539.png)
+
+The actual templates generating the styleguide just reference the Styleguide section and example HTML. The modified states are generated automatically.
+
+Overall, keep in mind that styleguides should adapt to the application they are referencing and be easy to maintain and as automatic as possible.
