@@ -1,7 +1,5 @@
 # Knyle Style Sheets
 
-This is a ruby library for parsing KSS documented stylesheets and generating styleguides.
-
 Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a CSS structure, documentation specification, and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
 
 ### New here?
@@ -12,15 +10,11 @@ Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology f
 
 ## Spec
 
-If you would like to learn more about the methodology and ideas behind Knyle Style Sheets, you should read SPEC.md. It contains the documenting syntax and styleguide guidelines.
+To learn the methodology and ideas behind Knyle Style Sheets, you should read [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). It contains the documenting syntax and styleguide guidelines.
 
 ## Ruby Library
 
-This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS documented with KSS guidelines.
-
-To use the library, include it in your project as a gem from <https://rubygems.org/gems/kss>. Then, create a parser and explore your KSS.
-
-Example with documentation from SPEC.md:
+This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS documented with KSS guidelines. To use the library, include it in your project as a gem from <https://rubygems.org/gems/kss>. Then, create a parser and explore your KSS.
 
 ```ruby
 styleguide = Kss::Parser.new("#{RACK_ROOT}public/stylesheets")
@@ -45,7 +39,7 @@ styleguide.section('2.1.1').modifiers.first.first.description
 
 ```
 
-For an example of how to use the library to generate a styleguide automatically, check out the `example` folder for a sinatra app with a generated styleguide.
+For an example of how to use the library to generate a styleguide automatically, check out the [`example`](https://github.com/kneath/kss/tree/master/example) folder for a sinatra app with a generated styleguide.
 
 The library is also fully TomDoc'd, completing the circle of life.
 
