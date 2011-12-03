@@ -1,0 +1,140 @@
+/*----------------------------------------------------------------------------
+  @group Global Reset
+----------------------------------------------------------------------------*/
+* {
+  padding:0;
+  margin:0;
+}
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, label, ul, ol, dl, fieldset, address { margin:1em 0; }
+li, dd { margin-left:5%; }
+fieldset { padding: .5em; }
+select option{ padding:0 5px; }
+
+.access{ display:none; } /* For accessibility related elements */
+.clear{ clear:both; height:0px; font-size:0px; line-height:0px; overflow:hidden; }
+a{ outline:none; }
+a img{ border:none; }
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+* html .clearfix {height: 1%;}
+.clearfix {display:inline-block;}
+.clearfix {display: block;}
+
+/* @end */
+
+body{
+  font-family:Helvetica, Arial, sans-serif;
+  font-size:14px;
+}
+
+header{
+  padding:10px;
+
+  font-size:16px;
+  color:#666;
+
+  background:#f1f1f1;
+  border-bottom:1px solid #ddd;
+}
+
+#wrapper{
+  width:600px;
+  padding-left:200px;
+}
+
+nav[role=main]{
+  float:left;
+  margin-left:-200px;
+  width:160px;
+}
+nav ul{
+  margin-left:10px;
+}
+nav li{
+  list-style-type:none;
+  margin:10px 0;
+}
+nav li a{
+  text-decoration:none;
+  color:#666;
+}
+
+/*----------------------------------------------------------------------------
+  @group Styleguide Styles
+----------------------------------------------------------------------------*/
+
+h1.styleguide {
+  margin: 0 0 -5px 0;
+  font-size: 24px;
+  color: #000; }
+
+.styleguide-example {
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+  .styleguide-example > h3 {
+    margin: 0;
+    padding: 5px;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: #333;
+    border-top: 1px solid #000; }
+    .styleguide-example > h3 em {
+      float: right;
+      text-transform: none;
+      font-style: normal;
+      font-weight: normal;
+      color: #999; }
+  .styleguide-example .styleguide-description {
+    padding: 10px 5px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ddd; }
+    .styleguide-example .styleguide-description p:first-child {
+      margin-top: 0; }
+    .styleguide-example .styleguide-description p:last-child {
+      margin-bottom: 0; }
+  .styleguide-example .styleguide-element {
+    position: relative;
+    padding: 20px; }
+  .styleguide-example .styleguide-element + .styleguide-element {
+    margin-top: -5px;
+    padding-top: 15px;
+    border-top: 1px solid #eee; }
+  .styleguide-example .styleguide-element .styleguide-modifier-name {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 8px;
+    font-size: 11px;
+    color: #999;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-top: none; }
+  .styleguide-example .styleguide-html {
+    padding: 5px 10px;
+    background: #edf6f8;
+    border-top: 1px solid #dde7ea;
+    overflow: auto; }
+    .styleguide-example .styleguide-html .highlight {
+      background: none; }
+  .styleguide-example ul.styleguide-modifiers {
+    margin: 0 0 0 10px; }
+    .styleguide-example ul.styleguide-modifiers li {
+      list-style-type: none;
+      margin-left: 0; }
+    .styleguide-example ul.styleguide-modifiers li strong {
+      font-family: Monaco, monospace;
+      font-size: 12px;
+      font-weight: normal;
+      color: #222; }
+
+/* @end */

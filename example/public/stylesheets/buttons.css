@@ -1,0 +1,50 @@
+/*
+Your standard form button.
+
+:hover    - Highlights when hovering.
+:disabled - Dims the button when disabled.
+.primary  - Indicates button is the primary action.
+.smaller  - A smaller button
+
+Styleguide 1.1
+*/
+button {
+  padding: 5px 15px;
+  line-height: normal;
+  font-family: "Helvetica Neue", Helvetica;
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  border-bottom-color: #bbb;
+  background: #f5f5f5;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+  background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e5e5e5));
+  background: -moz-linear-gradient(top, #f5f5f5, #e5e5e5);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer; }
+  button.primary, button.primary:hover {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    border-color: #74bb5a;
+    border-bottom-color: #509338;
+    background: #8add6d;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+    background: -webkit-gradient(linear, left top, left bottom, from(#8add6d), to(#60b044));
+    background: -moz-linear-gradient(top, #8add6d, #60b044);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
+  button.smaller {
+    font-size: 11px;
+    padding: 4px 7px; }
+  button:hover {
+    color: #337797;
+    background: #f0f7fa;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+    background: -webkit-gradient(linear, left top, left bottom, from(#f0f7fa), to(#d8eaf2));
+    background: -moz-linear-gradient(top, #f0f7fa, #d8eaf2);
+    border-color: #cbe3ee;
+    border-bottom-color: #97c7dd; }
+  button:disabled {
+    opacity: 0.5; }

@@ -39,6 +39,8 @@ styleguide.section('2.1.1').modifiers.first.first.description
 
 ```
 
+For an example of how to use the library to generate a styleguide automatically, check out the `example` folder for a sinatra app with a generated styleguide.
+
 The library is also fully TomDoc'd, completing the circle of life.
 
 ## Development

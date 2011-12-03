@@ -1,0 +1,24 @@
+<div class="styleguide-example">
+
+  <h3><%= @section.section %> <em><%= @section.filename %></em></h3>
+  <div class="styleguide-description">
+    <p><%= @section.description %></p>
+    <% if @section.modifiers.any? %>
+      <ul class="styleguide-modifier">
+        <% @section.modifiers.each do |modifier| %>
+          <li><strong><%= modifier.name %></strong> - <%= modifier.description %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div class="styleguide-element">
+    <%= @example_html %>
+  </div>
+  <% @section.modifiers.each do |modifier| %>
+    <div class="styleguide-element styleguide-modifier">
+      <span class="styleguide-modifier-name"><%= modifier.name %></span>
+      <%= @example_html.sub('$modifier_class', " #{modifier.class_name}") %>
+    </div>
+  <% end %>
+
+</div>
