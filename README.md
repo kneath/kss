@@ -5,12 +5,34 @@ Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology f
 ### New here?
 
 * **[The Spec (What KSS is)](https://github.com/kneath/kss/blob/master/SPEC.md)**
-* **[Example KSS](https://github.com/kneath/kss/blob/master/test/fixtures/scss/buttons.scss)**
 * **[Example living styleguide](https://github.com/kneath/kss/tree/master/example)**
 
 ## Spec
 
-To learn the methodology and ideas behind Knyle Style Sheets, you should read [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). It contains the documenting syntax and styleguide guidelines.
+To learn the methodology and ideas behind Knyle Style Sheets, you should read [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). It contains the documenting syntax and styleguide guidelines. At it's core, KSS is a documenting syntax for CSS:
+
+```scss
+// A button suitable for giving stars to someone.
+//
+// .star-given - A highlight indicating you've already given a star.
+// .disabled   - Dims the button to indicate it cannot be used.
+//
+// Styleguide 2.2.1.
+a.button.star{
+  display:inline-block;
+
+  .star{ font-size:10px; }
+
+  &.star-given{
+    color:#ae7e00;
+  }
+
+  &.disabled{
+    opacity:0.5;
+  }
+}
+```
+
 
 ## Ruby Library
 
