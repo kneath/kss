@@ -1,6 +1,6 @@
 # Knyle Style Sheets
 
-Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a CSS structure, documentation specification, and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
+Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a documentation specification and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
 
 ## Purpose
 
@@ -8,40 +8,11 @@ KSS is a set of guidelines to help you produce an HTML styleguide tied to CSS do
 
 KSS focuses on *how people work with CSS* — it does not define code structures, naming conventions, or methods for abstraction. It is important to understand that the styleguide format and documentation format are intrinsically tied to one another.
 
-## CSS Structure
-
-Certain styles must be separated into different folders to use KSS effectively:
-
-* **Preprocessor global variables and helper functions** — These files should not generate any actual CSS.
-* **Standalone styles (plugins)** - Self-contained styles that do not depend on any other styles. Examples include: CSS resets, (jQuery) plugin styles, and CSS frameworks.
-* **Shared styles** - Styles that are shared across many pages or most of the website. Examples include: form styles, generic text styling, and general layout.
-
-The remainder of your styles can be organized at your discretion.
-
-### Recommended directory structure
-
-    styles
-    ├── globals
-    │   ├── browser_helpers.scss
-    │   ├── responsive_helpers.scss
-    │   ├── variables.scss
-    ├── plugins
-    │   ├── jquery.fancybox-1.3.4.css
-    │   ├── pygment_trac.css
-    │   └── reset.scss
-    ├── sections
-    │   ├── feed.scss
-    │   ├── ideas.scss
-    │   ├── profile.scss
-    └── shared
-        ├── forms.scss
-        └── markdown.scss
-
 ## Style Documentation
 
 Unlike TomDoc, not every CSS rule should be documented. You should document a rule declaration when the rule can accurately describe a visual UI element in the styleguide. Each element should have one documentation block describing that particular UI element's various states.
 
-KSS documentation is hierarchical in nature — any documentation blocks at a styleguide hierarchy apply to the documentation blocks within that level.
+KSS documentation is hierarchical in nature — any documentation blocks at a styleguide hierarchy apply to the documentation blocks within that level. This means that documentation for 2.1 applies to documentation for 2.1.3.
 
 ### Format
 
@@ -69,7 +40,7 @@ a.button.star.disabled{
 }
 ```
 
-When using a preprocessor that supports the functionality, use `//` to prefix your comment sections like so (SCSS example):
+When using a preprocessor that supports the functionality, use `//` to prefix your comment sections (SCSS example):
 
 ```scss
 // A button suitable for giving stars to someone.
@@ -100,7 +71,7 @@ The description should be plain sentences of what the CSS rule or hierarchy does
 CSS rules that depend on specific HTML structures should describe those structures using `<element#id.class:pseudo>` notation. For example:
 
 ```scss
-// A feed of activity items. Within a <section.feed>, there should be many
+// A feed of activity items. Within each <section.feed>, there should be many
 // <article>s which are the  feed items.
 ```
 

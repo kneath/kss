@@ -8,35 +8,6 @@ KSS is a set of guidelines to help you produce an HTML styleguide tied to CSS do
 
 KSS focuses on *how people work with CSS* — it does not define code structures, naming conventions, or methods for abstraction. It is important to understand that the styleguide format and documentation format are intrinsically tied to one another.
 
-## CSS Structure
-
-Certain styles must be separated into different folders to use KSS effectively:
-
-* **Preprocessor global variables and helper functions** — These files should not generate any actual CSS.
-* **Standalone styles (plugins)** - Self-contained styles that do not depend on any other styles. Examples include: CSS resets, (jQuery) plugin styles, and CSS frameworks.
-* **Shared styles** - Styles that are shared across many pages or most of the website. Examples include: form styles, generic text styling, and general layout.
-
-The remainder of your styles can be organized at your discretion.
-
-### Recommended directory structure
-
-    styles
-    ├── globals
-    │   ├── browser_helpers.scss
-    │   ├── responsive_helpers.scss
-    │   ├── variables.scss
-    ├── plugins
-    │   ├── jquery.fancybox-1.3.4.css
-    │   ├── pygment_trac.css
-    │   └── reset.scss
-    ├── sections
-    │   ├── feed.scss
-    │   ├── ideas.scss
-    │   ├── profile.scss
-    └── shared
-        ├── forms.scss
-        └── markdown.scss
-
 ## Style Documentation
 
 Unlike TomDoc, not every CSS rule should be documented. You should document a rule declaration when the rule can accurately describe a visual UI element in the styleguide. Each element should have one documentation block describing that particular UI element's various states.
