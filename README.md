@@ -7,9 +7,9 @@ Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology f
 * **[The Spec (What KSS is)](https://github.com/kneath/kss/blob/master/SPEC.md)**
 * **[Example living styleguide](https://github.com/kneath/kss/tree/master/example)**
 
-## Spec
+## KSS in a nutshell
 
-To learn the methodology and ideas behind Knyle Style Sheets, you should read [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). It contains the documenting syntax and styleguide guidelines. At it's core, KSS is a documenting syntax for CSS:
+The methodology and ideas behind Knyle Style Sheets are contained in [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). At it's core, KSS is a documenting syntax for CSS.
 
 ```scss
 // A button suitable for giving stars to someone.
@@ -33,7 +33,6 @@ a.button.star{
 }
 ```
 
-
 ## Ruby Library
 
 This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS documented with KSS guidelines. To use the library, include it in your project as a gem from <https://rubygems.org/gems/kss>. Then, create a parser and explore your KSS.
@@ -42,28 +41,36 @@ This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS
 styleguide = Kss::Parser.new("#{RACK_ROOT}public/stylesheets")
 
 styleguide.section('2.1.1')
-  # => <Kss::Section>
+# => <Kss::Section>
 
 styleguide.section('2.1.1').description
-  # => "A button suitable for giving stars to someone."
+# => "A button suitable for giving stars to someone."
 
 styleguide.section('2.1.1').modifiers.first
-  # => <Kss::Modifier>
+# => <Kss::Modifier>
 
 styleguide.section('2.1.1').modifiers.first.name
-  # => ':hover'
+# => ':hover'
 
 styleguide.section('2.1.1').modifiers.first.class_name
-  # => 'pseudo-class-hover'
+# => 'pseudo-class-hover'
 
 styleguide.section('2.1.1').modifiers.first.first.description
-  # => 'Subtle hover highlight'
+# => 'Subtle hover highlight'
 
 ```
 
-For an example of how to use the library to generate a styleguide automatically, check out the [`example`](https://github.com/kneath/kss/tree/master/example) folder for a sinatra app with a generated styleguide.
-
 The library is also fully TomDoc'd, completing the circle of life.
+
+## Generating styleguides
+
+The documenting syntax and ruby library are intended to generate styleguides automatically. To do this, you'll need to leverage a small javascript library that generates class styles for pseudo-class styles (`:hover`, `:disabled`, etc).
+
+* [kss.coffee](https://github.com/kneath/kss/blob/master/lib/kss.coffee)
+
+* [kss.js](https://github.com/kneath/kss/blob/master/lib/kss.js) (compiled js)
+
+For an example of how to generate a styleguide, check out the [`example`](https://github.com/kneath/kss/tree/master/example) sinatra application.
 
 ## Development
 
