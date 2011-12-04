@@ -129,10 +129,7 @@ If you use a CSS preprocessor like SCSS or LESS, you should document all helper 
 //
 // Compatible in IE6+, Firefox 2+, Safari 4+.
 @mixin gradient($start, $end){
-  background:$start;
-  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
-  background:-webkit-gradient(linear, left top, left bottom, from($start), to($end));
-  background:-moz-linear-gradient(top,  $start,  $end);
+  ...
 }
 ```
 
@@ -183,7 +180,7 @@ The styleguide should be organized by numbered sections. These sections can go a
       4.1 Number tables
       4.2 Diagram tables
 
-The goal here is to create an organizational structure that is flexible, while still rigid enough to be machine processed and referenced inside of documentation.
+The goal here is to create an organizational structure that is flexible, but  rigid enough to be machine processed and referenced inside of documentation.
 
 ### Example
 
@@ -191,6 +188,6 @@ This styleguide is automatically generated from KSS documentation using the ruby
 
 ![](http://share.kyleneath.com/captures/Styleguide_-_GitHub_Team-20111202-160539.png)
 
-The actual templates generating the styleguide just reference the Styleguide section and example HTML. The modified states are generated automatically.
+The actual templates generating the styleguide just reference the Styleguide section and example HTML. The modified states are generated automatically. Please refer to the README for more information on how to generate styleguides, as well as a ruby library for parsing KSS documentation.
 
 Overall, keep in mind that styleguides should adapt to the application they are referencing and be easy to maintain and as automatic as possible.

@@ -1,6 +1,6 @@
 # Knyle Style Sheets
 
-Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a CSS structure, documentation specification, and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
+Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a documentation specification and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
 
 ## Purpose
 
@@ -12,7 +12,7 @@ KSS focuses on *how people work with CSS* — it does not define code structures
 
 Unlike TomDoc, not every CSS rule should be documented. You should document a rule declaration when the rule can accurately describe a visual UI element in the styleguide. Each element should have one documentation block describing that particular UI element's various states.
 
-KSS documentation is hierarchical in nature — any documentation blocks at a styleguide hierarchy apply to the documentation blocks within that level.
+KSS documentation is hierarchical in nature — any documentation blocks at a styleguide hierarchy apply to the documentation blocks within that level. This means that documentation for 2.1 applies to documentation for 2.1.3.
 
 ### Format
 
@@ -40,7 +40,7 @@ a.button.star.disabled{
 }
 ```
 
-When using a preprocessor that supports the functionality, use `//` to prefix your comment sections like so (SCSS example):
+When using a preprocessor that supports the functionality, use `//` to prefix your comment sections (SCSS example):
 
 ```scss
 // A button suitable for giving stars to someone.
@@ -71,7 +71,7 @@ The description should be plain sentences of what the CSS rule or hierarchy does
 CSS rules that depend on specific HTML structures should describe those structures using `<element#id.class:pseudo>` notation. For example:
 
 ```scss
-// A feed of activity items. Within a <section.feed>, there should be many
+// A feed of activity items. Within each <section.feed>, there should be many
 // <article>s which are the  feed items.
 ```
 
@@ -129,10 +129,7 @@ If you use a CSS preprocessor like SCSS or LESS, you should document all helper 
 //
 // Compatible in IE6+, Firefox 2+, Safari 4+.
 @mixin gradient($start, $end){
-  background:$start;
-  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
-  background:-webkit-gradient(linear, left top, left bottom, from($start), to($end));
-  background:-moz-linear-gradient(top,  $start,  $end);
+  ...
 }
 ```
 
@@ -183,7 +180,7 @@ The styleguide should be organized by numbered sections. These sections can go a
       4.1 Number tables
       4.2 Diagram tables
 
-The goal here is to create an organizational structure that is flexible, while still rigid enough to be machine processed and referenced inside of documentation.
+The goal here is to create an organizational structure that is flexible, but  rigid enough to be machine processed and referenced inside of documentation.
 
 ### Example
 
@@ -191,6 +188,6 @@ This styleguide is automatically generated from KSS documentation using the ruby
 
 ![](http://share.kyleneath.com/captures/Styleguide_-_GitHub_Team-20111202-160539.png)
 
-The actual templates generating the styleguide just reference the Styleguide section and example HTML. The modified states are generated automatically.
+The actual templates generating the styleguide just reference the Styleguide section and example HTML. The modified states are generated automatically. Please refer to the README for more information on how to generate styleguides, as well as a ruby library for parsing KSS documentation.
 
 Overall, keep in mind that styleguides should adapt to the application they are referencing and be easy to maintain and as automatic as possible.
