@@ -1,6 +1,6 @@
 # Knyle Style Sheets
 
-Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a CSS structure, documentation specification, and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
+Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a documentation specification and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
 
 * **[The Spec (What KSS is)](https://github.com/kneath/kss/blob/master/SPEC.md)**
 * **[Example living styleguide](https://github.com/kneath/kss/tree/master/example)**
