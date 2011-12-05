@@ -57,7 +57,7 @@ module Kss
       text
     end
 
-    # Finds the Section for a given styleguide reference
+    # Public: Finds the Section for a given styleguide reference.
     #
     # Returns a Section for a reference, or a blank Section if none found.
     def section(reference)
