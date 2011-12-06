@@ -44,7 +44,7 @@ module Kss
       return false unless cleaned_comment.is_a? String
 
       possible_reference = cleaned_comment.split("\n\n").last
-      possible_reference =~ /Styleguide \d/i
+      possible_reference =~ /Styleguide \d/
     end
 
     # Takes the raw comment text including comment syntax and strips all
