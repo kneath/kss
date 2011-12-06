@@ -68,4 +68,9 @@ comment
       Kss::Parser.clean_comments(@indented_css_comment)
   end
 
+  test "parses nested SCSS documents" do
+    assert_equal "Your standard form element.", @scss_parsed.section('3.0.0').description
+    assert_equal "Your standard text input box.", @scss_parsed.section('3.0.1').description
+  end
+
 end

@@ -13,17 +13,27 @@ module Kss
 
       Dir["#{base_path}/**/*.*"].each do |filename|
         root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
-        root_node.children.each do |node|
-          next unless node.is_a? Sass::Tree::CommentNode
-          comment_text = self.class.clean_comments node.value[0]
+        parse_node(root_node, filename)
 
-          if self.class.kss_block? comment_text
-            base_name = File.basename(filename)
-            section = Section.new(comment_text, base_name)
-            @sections[section.section] = section
-          end
+      end
+    end
+
+    def parse_node parent_node, filename
+      parent_node.children.each do |node|
+        unless node.is_a? Sass::Tree::CommentNode
+          parse_node(node, filename) if node.has_children
+          next
+        end
+        comment_text = self.class.clean_comments node.value[0]
+
+        if self.class.kss_block? comment_text
+          base_name = File.basename(filename)
+          section = Section.new(comment_text, base_name)
+          @sections[section.section] = section
         end
       end
+
+      parent_node
     end
 
     # Public: Takes a cleaned (no comment syntax like // or /* */) comment
