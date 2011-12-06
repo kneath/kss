@@ -9,25 +9,25 @@ Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology f
 
 The methodology and ideas behind Knyle Style Sheets are contained in [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). At it's core, KSS is a documenting syntax for CSS.
 
-```scss
-// A button suitable for giving stars to someone.
-//
-// .star-given - A highlight indicating you've already given a star.
-// .disabled   - Dims the button to indicate it cannot be used.
-//
-// Styleguide 2.2.1.
+```css
+/*
+A button suitable for giving stars to someone.
+
+:hover             - Subtle hover highlight.
+.stars-given       - A highlight indicating you've already given a star.
+.stars-given:hover - Subtle hover highlight on top of stars-given styling.
+.disabled          - Dims the button to indicate it cannot be used.
+
+Styleguide 2.1.3.
+*/
 a.button.star{
-  display:inline-block;
-
-  .star{ font-size:10px; }
-
-  &.star-given{
-    color:#ae7e00;
-  }
-
-  &.disabled{
-    opacity:0.5;
-  }
+  ...
+}
+a.button.star.stars-given{
+  ...
+}
+a.button.star.disabled{
+  ...
 }
 ```
 
