@@ -53,6 +53,8 @@ module Kss
       text.gsub!(/^\/\*/, '') # starting block
       text.gsub!(/\*\/$/, '') # ending block
 
+      text.gsub!(/^[ \t]+/, '') # remove leading whitespace
+
       text.strip!
       text
     end
