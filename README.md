@@ -53,7 +53,7 @@ styleguide.section('2.1.1').modifiers.first.name
 styleguide.section('2.1.1').modifiers.first.class_name
 # => 'pseudo-class-hover'
 
-styleguide.section('2.1.1').modifiers.first.first.description
+styleguide.section('2.1.1').modifiers.first.description
 # => 'Subtle hover highlight'
 
 ```
