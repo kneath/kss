@@ -1,0 +1,40 @@
+/* Your standard form button.
+ *
+ * :hover    - Highlights when hovering.
+ * :disabled - Dims the button when disabled.
+ * .primary  - Indicates button is the primary action.
+ * .smaller  - A little bit smaller now.
+ *
+ * Styleguide 2.1.1. */
+button
+  padding: 5px 15px
+
+  &.primary, &.primary:hover
+    color: #fff
+
+  &.smaller
+    font-size: 11px
+
+  &:hover
+    color: #337797
+
+  &:disabled
+    opacity: 0.5
+
+/* A button suitable for giving stars to someone.
+ *
+ * .star-given - A highlight indicating you've already given a star.
+ * .disabled   - Dims the button to indicate it cannot be used.
+ *
+ * Styleguide 2.2.1. */
+a.button.star
+  display: inline-block
+
+  .star
+    font-size: 10px
+
+  &.star-given
+    color: #ae7e00
+
+  &.disabled
+    opacity: 0.5

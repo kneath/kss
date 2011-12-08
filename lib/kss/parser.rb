@@ -12,7 +12,11 @@ module Kss
       @sections = {}
 
       Dir["#{base_path}/**/*.*"].each do |filename|
-        root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
+        if filename.match(/\.css$/)
+          root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
+        else
+          root_node = Sass::Engine.for_file(filename, {}).to_tree
+        end
         parse_node(root_node, filename)
 
       end
