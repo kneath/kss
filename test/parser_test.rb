@@ -27,13 +27,22 @@ comment
  * Styleguide 2.2.1. */
 comment
 
+  @slashed_css_comment = <<comment
+// A button suitable for giving stars to someone.
+//
+// .star-given - A highlight indicating you've already given a star.
+// .disabled   - Dims the button to indicate it cannot be used.
+//
+// Styleguide 2.2.1.
+comment
+
   @indented_css_comment = <<comment
   /*
   A button suitable for giving stars to someone.
-  
+
   .star-given - A highlight indicating you've already given a star.
   .disabled   - Dims the button to indicate it cannot be used.
-  
+
   Styleguide 2.2.1.
   */
 comment
@@ -55,9 +64,14 @@ comment
       @scss_parsed.section('2.1.1').description
   end
 
-  test "parses KSS comments in SASS" do
+  test "parses KSS multi-line comments in SASS (/* ... */)" do
     assert_equal 'Your standard form button.',
       @sass_parsed.section('2.1.1').description
+  end
+
+  test "parses KSS single-line comments in SASS (// ... )" do
+    assert_equal 'A button suitable for giving stars to someone.',
+      @sass_parsed.section('2.2.1').description
   end
 
   test "parses KSS comments in CSS" do
@@ -70,6 +84,8 @@ comment
       Kss::Parser.clean_comments(@css_comment)
     assert_equal @cleaned_css_comment,
       Kss::Parser.clean_comments(@starred_css_comment)
+    assert_equal @cleaned_css_comment,
+      Kss::Parser.clean_comments(@slashed_css_comment)
     assert_equal @cleaned_css_comment,
       Kss::Parser.clean_comments(@indented_css_comment)
   end
