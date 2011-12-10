@@ -1,7 +1,7 @@
 # This class scans your stylesheets for pseudo classes, then inserts a new CSS
 # rule with the same properties, but named 'psuedo-class-{{name}}'.
 #
-# Supported pseudo classes: hover, disabled.
+# Supported pseudo classes: hover, disabled, active, visited.
 #
 # Example:
 #
@@ -9,15 +9,16 @@
 #   => a.pseudo-class-hover{ color:blue; }
 class KssStateGenerator
   constructor: ->
-    hover = /:hover/
-    disabled = /:disabled/
+    pseudos = /(\:hover|\:disabled|\:active|\:visited)/g
 
     try
       for stylesheet in document.styleSheets
         idxs = []
         for rule, idx in stylesheet.cssRules
-          if rule.type is CSSRule.STYLE_RULE and (hover.test(rule.selectorText) or disabled.test(rule.selectorText))
-            @insertRule(rule.cssText.replace(':', '.pseudo-class-'))
+          if (rule.type == CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)
+            replaceRule = (matched, stuff) ->
+              return ".pseudo-class-" + matched.replace(':', '')
+            @insertRule(rule.cssText.replace(pseudos, replaceRule))
 
   # Takes a given style and attaches it to the current page.
   #
