@@ -29,7 +29,7 @@ module Kss
     #
     # Returns a CSS class String.
     def class_name
-      name.sub('.', ' ').sub(':', ' pseudo-class-').strip
+      name.gsub('.', ' ').gsub(':', ' pseudo-class-').strip
     end
 
   end
