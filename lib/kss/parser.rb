@@ -12,9 +12,22 @@ module Kss
       @sections = {}
 
       Dir["#{base_path}/**/*.*"].each do |filename|
-        root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
-        parse_node(root_node, filename)
+        if File.extname(filename) == ".less"
+          tree = Less::Parser.new(:paths => [base_path], :filename => filename).
+            # HACK: get the internal JS tree object
+            parse(File.read(filename)).instance_variable_get "@tree"
 
+          # inject less.js into a new V8 context
+          less = Less.instance_variable_get "@less"
+          cxt = V8::Context.new
+          cxt['less'] = less
+
+          # parse node tree for comments
+          parse_v8_node(cxt, tree, filename)
+        else
+          root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
+          parse_node(root_node, filename)
+        end
       end
     end
 
@@ -24,16 +37,38 @@ module Kss
           parse_node(node, filename) if node.has_children
           next
         end
-        comment_text = self.class.clean_comments node.value[0]
 
-        if self.class.kss_block? comment_text
-          base_name = File.basename(filename)
-          section = Section.new(comment_text, base_name)
-          @sections[section.section] = section
-        end
+        add_section node.value[0], filename
       end
 
       parent_node
+    end
+
+    def parse_v8_node cxt, parent_node, filename
+      parent_node.rules.each do |node|
+        # inject the current to into JS context
+        cxt['node'] = node
+
+        unless cxt.eval "node instanceof less.tree.Comment"
+          parse_v8_node(cxt, node, filename) if cxt.eval 'node.rules != null'
+
+          next
+        end
+
+        add_section node.value, filename
+      end
+
+      parent_node
+    end
+
+    def add_section comment, filename
+      comment_text = self.class.clean_comments comment
+
+      if self.class.kss_block? comment_text
+        base_name = File.basename(filename)
+        section = Section.new(comment_text, base_name)
+        @sections[section.section] = section
+      end
     end
 
     # Public: Takes a cleaned (no comment syntax like // or /* */) comment

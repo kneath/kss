@@ -5,6 +5,7 @@ class ParserTest < Kss::Test
   def setup
     @scss_parsed = Kss::Parser.new('test/fixtures/scss')
     @css_parsed = Kss::Parser.new('test/fixtures/css')
+    @less_parsed = Kss::Parser.new('test/fixtures/less')
 
     @css_comment = <<comment
 /*
@@ -54,6 +55,11 @@ comment
       @scss_parsed.section('2.1.1').description
   end
 
+  test "parsers KSS comments in LESS" do
+    assert_equal 'Your standard form button.',
+      @less_parsed.section('2.1.1').description
+  end
+
   test "parses KSS comments in CSS" do
     assert_equal 'Your standard form button.',
       @css_parsed.section('2.1.1').description
@@ -71,6 +77,11 @@ comment
   test "parses nested SCSS documents" do
     assert_equal "Your standard form element.", @scss_parsed.section('3.0.0').description
     assert_equal "Your standard text input box.", @scss_parsed.section('3.0.1').description
+  end
+
+  test "parses nested LESS documents" do
+    assert_equal "Your standard form element.", @less_parsed.section('3.0.0').description
+    assert_equal "Your standard text input box.", @less_parsed.section('3.0.1').description
   end
 
 end

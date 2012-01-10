@@ -1,4 +1,6 @@
 require 'sass'
+require 'v8'
+require 'less'
 
 require 'kss/modifier'
 require 'kss/parser'
