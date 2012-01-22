@@ -48,7 +48,7 @@ module Kss
           parse_sass_node(node, filename) if node.has_children
           next
         end
-        add_section node.value[0], filename
+        add_section node.to_scss, filename
       end
       parent_node
     end
