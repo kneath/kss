@@ -12,7 +12,11 @@ module Kss
       @sections = {}
 
       Dir["#{base_path}/**/*.*"].each do |filename|
-        root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
+        if filename.match(/\.css$/)
+          root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
+        else
+          root_node = Sass::Engine.for_file(filename, {}).to_tree
+        end
         parse_node(root_node, filename)
 
       end
@@ -24,7 +28,7 @@ module Kss
           parse_node(node, filename) if node.has_children
           next
         end
-        comment_text = self.class.clean_comments node.value[0]
+        comment_text = self.class.clean_comments node.to_scss
 
         if self.class.kss_block? comment_text
           base_name = File.basename(filename)
@@ -55,9 +59,13 @@ module Kss
     def self.clean_comments(text)
       text.strip!
 
-      # SASS generated comment syntax
+      # SASS generated multi-line comment syntax
       text.gsub!(/(\/\* )?( \*\/)?/, '') # [/* + space] or [space + */]
       text.gsub!(/\n\s\* ?/, "\n") # * in front of every line
+
+      # SASS generated single-line comment syntax
+      text.gsub!(/\/\/ /, '') # [// + space]
+      text.gsub!(/\/\/\n/, "\n") # [// + carriage return]
 
       # Manual generated comment syntax
       text.gsub!(/^\/\*/, '') # starting block
