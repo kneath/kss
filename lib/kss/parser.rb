@@ -17,15 +17,21 @@ module Kss
         else
           root_node = Sass::Engine.for_file(filename, {}).to_tree
         end
-        parse_node(root_node, filename)
-
+        parse_sass_node(root_node, filename)
       end
     end
 
-    def parse_node parent_node, filename
+    # Given a Sass::Tree::Node, find all CommentNodes and populate @sections
+    # with parsed Section objects.
+    #
+    # parent_node - A Sass::Tree::Node to start at.
+    # filename    - The filename String this node is found at.
+    #
+    # Returns the Sass::Tree::Node given.
+    def parse_sass_node parent_node, filename
       parent_node.children.each do |node|
         unless node.is_a? Sass::Tree::CommentNode
-          parse_node(node, filename) if node.has_children
+          parse_sass_node(node, filename) if node.has_children
           next
         end
         comment_text = self.class.clean_comments node.to_scss
