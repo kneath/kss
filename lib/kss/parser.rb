@@ -25,22 +25,31 @@ module Kss
           # parse node tree for comments
           parse_v8_node(cxt, tree, filename)
         else
-          root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
-          parse_node(root_node, filename)
+          if filename.match(/\.css$/)
+            root_node = Sass::SCSS::Parser.new(File.read(filename), filename).parse
+          else
+            root_node = Sass::Engine.for_file(filename, {}).to_tree
+          end
+          parse_sass_node(root_node, filename)
         end
       end
     end
 
-    def parse_node parent_node, filename
+    # Given a Sass::Tree::Node, find all CommentNodes and populate @sections
+    # with parsed Section objects.
+    #
+    # parent_node - A Sass::Tree::Node to start at.
+    # filename    - The filename String this node is found at.
+    #
+    # Returns the Sass::Tree::Node given.
+    def parse_sass_node parent_node, filename
       parent_node.children.each do |node|
         unless node.is_a? Sass::Tree::CommentNode
-          parse_node(node, filename) if node.has_children
+          parse_sass_node(node, filename) if node.has_children
           next
         end
-
         add_section node.value[0], filename
       end
-
       parent_node
     end
 
@@ -90,9 +99,13 @@ module Kss
     def self.clean_comments(text)
       text.strip!
 
-      # SASS generated comment syntax
+      # SASS generated multi-line comment syntax
       text.gsub!(/(\/\* )?( \*\/)?/, '') # [/* + space] or [space + */]
       text.gsub!(/\n\s\* ?/, "\n") # * in front of every line
+
+      # SASS generated single-line comment syntax
+      text.gsub!(/\/\/ /, '') # [// + space]
+      text.gsub!(/\/\/\n/, "\n") # [// + carriage return]
 
       # Manual generated comment syntax
       text.gsub!(/^\/\*/, '') # starting block
