@@ -1,7 +1,4 @@
 source :rubygems
 
 gem 'sinatra', '~> 1.3.1'
-gem 'kss',     '~> 0.1.1'
-
-
-gem 'less', ">= 2.0"
+gem 'kss',     :git => "git://github.com/kneath/kss.git"
