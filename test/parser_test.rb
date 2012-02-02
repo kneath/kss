@@ -111,4 +111,8 @@ comment
     assert_equal "Your standard text input box.", @sass_parsed.section('3.0.1').description
   end
 
+  test "get_sections returns hash of sections" do
+    assert_equal 2, @css_parsed.get_sections.count
+  end
+
 end

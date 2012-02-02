@@ -124,6 +124,13 @@ module Kss
     def section(reference)
       @sections[reference] || Section.new
     end
+    
+    # Public: Getter for @sections.
+    #
+    # Returns a hash of Sections.
+    def get_sections
+      @sections
+    end
 
   end
 end
