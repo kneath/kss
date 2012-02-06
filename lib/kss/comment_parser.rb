@@ -8,30 +8,31 @@ module Kss
 
     # Returns a boolean.
     def self.single_line_comment?(line)
-      !!(line =~ /\s*\/\//)
+      !!(line =~ /^\s*\/\//)
     end
 
     # Returns a boolean.
     def self.start_multi_line_comment?(line)
-      !!(line =~ /\s*\/\*/)
+      !!(line =~ /^\s*\/\*/)
     end
 
     # Returns a boolean.
     def self.end_multi_line_comment?(line)
+      return false if self.single_line_comment?(line)
       !!(line =~ /.*\*\//)
     end
 
     # Returns a String.
     def self.parse_single_line(line)
-      matches = line.match /(.*\/\/)(.+)?/
-      matches[2].to_s
+      cleaned = line.to_s.sub(/\s*\/\//, '')
+      cleaned.rstrip
     end
 
     # Returns a String.
     def self.parse_multi_line(line)
       cleaned = line.to_s.sub(/\s*\/\*/, '')
       cleaned = cleaned.sub(/\*\//, '')
-      cleaned
+      cleaned.rstrip
     end
 
     # Public: Initializes a new comment parser object. Does not parse on
