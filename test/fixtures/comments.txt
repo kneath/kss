@@ -1,0 +1,33 @@
+This file is used for generic comment parsing across CSS, SCSS, SASS & LESS.
+
+There's single-line comment styles:
+
+// This comment block has comment identifiers on every line.
+//
+// Fun fact: this is Kyle's favorite comment syntax!
+
+
+There's block comment styles:
+
+/* This comment block is a block-style comment syntax.
+
+There's only two identifier across multiple lines. */
+
+/* This is another common multi-line comment style.
+ *
+ * It has stars at the begining of every line.
+ */
+
+
+Some people do crazy things like mix comment styles:
+
+// This comment has a /* comment */ identifier inside of it!
+
+/* Look at my //cool// comment art! */
+
+
+Indented comments:
+
+    // Indented single-line comment.
+
+    /* Indented block comment. */
