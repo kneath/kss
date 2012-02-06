@@ -6,7 +6,7 @@ module Kss
   # /* Multi-line style. */
   class CommentParser
 
-    # Is this a single-line comment? // This style
+    # Public: Is this a single-line comment? // This style
     #
     # line - A String of one line of text.
     #
@@ -15,7 +15,7 @@ module Kss
       !!(line =~ /^\s*\/\//)
     end
 
-    # Is this the start of a multi-line comment? /* This style */
+    # Public: Is this the start of a multi-line comment? /* This style */
     #
     # line - A String of one line of text.
     #
@@ -24,7 +24,7 @@ module Kss
       !!(line =~ /^\s*\/\*/)
     end
 
-    # Is this the end of a multi-line comment? /* This style */
+    # Public: Is this the end of a multi-line comment? /* This style */
     #
     # line - A String of one line of text.
     #
@@ -34,7 +34,7 @@ module Kss
       !!(line =~ /.*\*\//)
     end
 
-    # Removes comment identifiers for single-line comments.
+    # Public: Removes comment identifiers for single-line comments.
     #
     # line - A String of one line of text.
     #
@@ -44,7 +44,7 @@ module Kss
       cleaned.rstrip
     end
 
-    # Remove comment identifiers for multi-line comments.
+    # Public: Remove comment identifiers for multi-line comments.
     #
     # line - A String of one line of text.
     #
@@ -81,6 +81,9 @@ module Kss
     end
 
 
+    # Parse the file for comment blocks and populate them into @blocks.
+    #
+    # Returns an Array  of parsed comment Strings.
     def parse_blocks
       File.open @file_path do |file|
         current_block = nil
