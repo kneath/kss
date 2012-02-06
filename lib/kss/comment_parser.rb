@@ -29,7 +29,7 @@ module Kss
 
     # Returns a String.
     def self.parse_multi_line(line)
-      cleaned = line.to_s.sub(/\/\*/, '')
+      cleaned = line.to_s.sub(/[\s+]?\/\*/, '')
       cleaned = cleaned.sub(/\*\//, '')
       cleaned
     end
@@ -92,9 +92,9 @@ module Kss
           # End a multi-line block if detected
           inside_multi_line_block = false if self.class.end_multi_line_comment?(line)
 
-          if !self.class.single_line_comment?(line) && !inside_multi_line_block
-            # Store the current comment block
-            @blocks << normalize(current_block) if inside_single_line_block || inside_multi_line_block
+          # Store the current block if we're done
+          unless self.class.single_line_comment?(line) || inside_multi_line_block
+            @blocks << normalize(current_block) unless current_block.nil?
 
             inside_single_line_block = false
             current_block = nil
