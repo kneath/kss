@@ -108,7 +108,8 @@ module Kss
 
     # Normalizes the comment block to ignore any consistent preceding
     # whitespace. Consistent means the same amount of whitespace on every line
-    # of the comment block.
+    # of the comment block. Also strips any whitespace at the start and end of
+    # the whole block.
     #
     # Returns a String of normalized text.
     def normalize(text_block)
@@ -117,8 +118,15 @@ module Kss
       # Strip consistent indenting by measuring first line's whitespace
       indent_size = nil
       unindented = text_block.split("\n").collect do |line|
-        indent_size = line.scan(/^\s*/)[0].to_s.size if indent_size.nil?
-        line == "" ? "" : line.slice(indent_size, line.length - 1)
+        preceding_whitespace = line.scan(/^\s*/)[0].to_s.size
+        indent_size = preceding_whitespace if indent_size.nil?
+        if line == ""
+          ""
+        elsif indent_size <= preceding_whitespace
+          line.slice(indent_size, line.length - 1)
+        else
+          line
+        end
       end.join("\n")
 
       unindented.strip

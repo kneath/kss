@@ -27,7 +27,7 @@ class CommentParser < Kss::Test
   end
 
   test "parses the multi-line comment syntax" do
-    assert_equal " yuuuup ", Kss::CommentParser.parse_multi_line("/* yuuuup */")
+    assert_equal " yuuuup", Kss::CommentParser.parse_multi_line("/* yuuuup */")
   end
 
   test "finds single-line comment styles" do
