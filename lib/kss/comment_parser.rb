@@ -116,6 +116,10 @@ module Kss
     def normalize(text_block)
       return text_block if @options[:preserve_whitespace]
 
+      # Strip out any preceding [whitespace]* that occur on every line. Not
+      # the smartest, but I wonder if I care.
+      text_block = text_block.gsub(/^(\s*\*+)/, '')
+
       # Strip consistent indenting by measuring first line's whitespace
       indent_size = nil
       unindented = text_block.split("\n").collect do |line|
