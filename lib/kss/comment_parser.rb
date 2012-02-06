@@ -6,28 +6,48 @@ module Kss
   # /* Multi-line style. */
   class CommentParser
 
+    # Is this a single-line comment? // This style
+    #
+    # line - A String of one line of text.
+    #
     # Returns a boolean.
     def self.single_line_comment?(line)
       !!(line =~ /^\s*\/\//)
     end
 
+    # Is this the start of a multi-line comment? /* This style */
+    #
+    # line - A String of one line of text.
+    #
     # Returns a boolean.
     def self.start_multi_line_comment?(line)
       !!(line =~ /^\s*\/\*/)
     end
 
+    # Is this the end of a multi-line comment? /* This style */
+    #
+    # line - A String of one line of text.
+    #
     # Returns a boolean.
     def self.end_multi_line_comment?(line)
       return false if self.single_line_comment?(line)
       !!(line =~ /.*\*\//)
     end
 
+    # Removes comment identifiers for single-line comments.
+    #
+    # line - A String of one line of text.
+    #
     # Returns a String.
     def self.parse_single_line(line)
       cleaned = line.to_s.sub(/\s*\/\//, '')
       cleaned.rstrip
     end
 
+    # Remove comment identifiers for multi-line comments.
+    #
+    # line - A String of one line of text.
+    #
     # Returns a String.
     def self.parse_multi_line(line)
       cleaned = line.to_s.sub(/\s*\/\*/, '')
