@@ -150,7 +150,7 @@ module Kss
         indent_size = preceding_whitespace if indent_size.nil?
         if line == ""
           ""
-        elsif indent_size <= preceding_whitespace
+        elsif indent_size <= preceding_whitespace && indent_size > 0
           line.slice(indent_size, line.length - 1)
         else
           line
