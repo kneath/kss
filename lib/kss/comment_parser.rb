@@ -40,11 +40,11 @@ module Kss
     # file_path - The location of the file to parse as a String.
     # options   - Optional options hash.
     #   :preserve_whitespace - Preserve the whitespace before/after comment
-    #                          markers (default:true).
+    #                          markers (default:false).
     #
     def initialize(file_path, options={})
       @options = options
-      @options[:preserve_whitespace] = true if @options[:preserve_whitespace].nil?
+      @options[:preserve_whitespace] = false if @options[:preserve_whitespace].nil?
       @file_path = file_path
       @blocks = []
       @parsed = false
@@ -97,7 +97,6 @@ module Kss
             @blocks << normalize(current_block) if inside_single_line_block || inside_multi_line_block
 
             inside_single_line_block = false
-            inside_multi_line_block  = false
             current_block = nil
           end
         end
@@ -114,7 +113,15 @@ module Kss
     # Returns a String of normalized text.
     def normalize(text_block)
       return text_block if @options[:preserve_whitespace]
-      text_block
+
+      # Strip consistent indenting by measuring first line's whitespace
+      indent_size = nil
+      unindented = text_block.split("\n").collect do |line|
+        indent_size = line.scan(/^\s*/)[0].to_s.size if indent_size.nil?
+        line == "" ? "" : line.slice(indent_size, line.length - 1)
+      end.join("\n")
+
+      unindented.strip
     end
 
   end
