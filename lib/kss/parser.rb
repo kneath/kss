@@ -2,7 +2,10 @@ module Kss
   # Public: The main KSS parser. Takes a directory full of SASS / SCSS / CSS
   # files and parses the KSS within them.
   class Parser
-
+    
+    # Public: Returns a hash of Sections.
+    attr_accessor :sections
+    
     # Public: Initializes a new parser based on a directory of files. Scans
     # within the directory recursively for any comment blocks that look like
     # KSS.
