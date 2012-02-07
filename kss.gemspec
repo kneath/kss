@@ -14,9 +14,6 @@ Gem::Specification.new do |s|
   s.files            += Dir.glob("lib/**/*")
   s.files            += Dir.glob("test/**/*")
 
-  s.add_dependency   "sass",    ">= 3.1"
-  s.add_dependency   "less",    ">= 2.0"
-
   s.description       = <<desc
   Inspired by TomDoc, KSS attempts to provide a methodology for writing
   maintainable, documented CSS within a team. Specifically, KSS is a CSS
