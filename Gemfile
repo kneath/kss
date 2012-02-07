@@ -1,8 +1,5 @@
 source :rubygems
 
-gem "sass", ">= 3.1"
-gem "less", ">= 2.0"
-
 group :test do
   gem "minitest", ">= 1.5.0"
 end
