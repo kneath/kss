@@ -65,7 +65,7 @@ The library is also fully TomDoc'd, completing the circle of life.
 The documenting syntax and ruby library are intended to generate styleguides automatically. To do this, you'll need to leverage a small javascript library that generates class styles for pseudo-class styles (`:hover`, `:disabled`, etc).
 
 * [kss.coffee](https://github.com/kneath/kss/blob/master/lib/kss.coffee)
-* [kss.js](https://github.com/kneath/kss/blob/master/lib/kss.js) (compiled js)
+* [kss.js](https://github.com/kneath/kss/blob/master/example/public/javascripts/kss.js) (compiled js)
 
 For an example of how to generate a styleguide, check out the [`example`](https://github.com/kneath/kss/tree/master/example) sinatra application.
 
