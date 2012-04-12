@@ -256,3 +256,19 @@ p {
 .three-col .middle {
   width: 312px;
 }
+
+.content {
+  margin: 0 auto;
+  width: 700px;
+  line-height: 1.5;
+}
+.content p {
+  font-size: 14px;
+}
+
+.content h1 {
+  margin-top: -10px;
+  font-weight: normal;
+  font-size: 24px;
+  color: #000;
+}
