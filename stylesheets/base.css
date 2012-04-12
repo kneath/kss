@@ -1,0 +1,144 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+/*----------------------------------------------------------------------------
+  Main Layout
+----------------------------------------------------------------------------*/
+
+body {
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 14px;
+  color: #666;
+  background: #fff;
+}
+
+a {
+  font-weight: bold;
+  color: #0092c2;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+/*----------------------------------------------------------------------------
+  Header
+----------------------------------------------------------------------------*/
+
+header {
+  margin-bottom: 50px;
+  height: 38px;
+  background: #fff;
+  background: #E62E15;
+  border-bottom: 1px solid #C72811;
+  box-shadow: 0 0 10px rgba(0,0,0,0.125);
+}
+
+header .inner {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+header a.logo {
+  float: left;
+  margin-top: 12px;
+  width: 28px;
+  height: 14px;
+  text-indent: -9999px;
+  background: url(/images/sprites.png) 0 0 no-repeat;
+}
+
+header nav ul {
+  float: left;
+  margin: 0 0 0 20px;
+  height: 38px;
+  padding-left: 20px;
+  border-left: 1px solid #C72811;
+}
+header nav ul>li {
+  list-style-type: none;
+  margin-right: 20px;
+  float: left;
+  height: 38px;
+  line-height: 35px;
+}
+header nav a {
+  display: inline-block;
+  line-height: 1;
+  padding-bottom: 3px;
+  font-size: 11px;
+  color: #fff;
+  -webkit-font-smoothing: antialised;
+  text-shadow: 0 -1px rgba(0,0,0,0.4);
+  border-bottom: 1px solid #FF421D;
+}
+header nav a:hover {
+  text-decoration: none;
+  border-bottom-color: #fff;
+}
+header nav a.selected {
+  color: #FFDC4B;
+  border: none;
+}
+
+header p.github {
+  float: right;
+  margin: 0;
+  height: 38px;
+  line-height: 38px;
+}
+header p.github a{
+  float: right;
+  margin-top: 10px;
+  height: 18px;
+  line-height: 18px;
+  padding-left: 23px;
+  font-weight: normal;
+  border: none;
+  background: url(/images/sprites.png) 0 -400px no-repeat;
+}
