@@ -67,6 +67,11 @@ a:hover {
   text-decoration: underline;
 }
 
+code {
+  font-size: 13px;
+  font-family: "Monaco";
+}
+
 
 
 /*----------------------------------------------------------------------------
@@ -182,6 +187,10 @@ header p.github a{
 .intro .description {
   float: left;
   width: 314px;
+}
+.intro .example {
+  float: right;
+  width: 656px;
 }
 
 .intro h1.kss-text {

@@ -17,6 +17,27 @@ layout: default
     </div>
 
     <div class="example">
+
+{% highlight scss %}
+// A button suitable for giving stars to someone.
+//
+// :hover             - Subtle hover highlight.
+// .stars-given       - A highlight indicating you've already given a star.
+// .stars-given:hover - Subtle hover highlight on top of stars-given styling.
+// .disabled          - Dims the button to indicate it cannot be used.
+//
+// Styleguide 2.1.3.
+a.button.star{
+  ...
+  &.star-given{
+    ...
+  }
+  &.disabled{
+    ...
+  }
+}
+{% endhighlight %}
+
     </div>
 
   </div>
