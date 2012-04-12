@@ -117,7 +117,7 @@ header a.logo {
   width: 28px;
   height: 14px;
   text-indent: -9999px;
-  background: url(/images/sprites.png) 0 0 no-repeat;
+  background: url(../images/sprites.png) 0 0 no-repeat;
 }
 
 header nav ul {
@@ -171,7 +171,7 @@ header p.github a{
   padding-left: 23px;
   font-weight: normal;
   border: none;
-  background: url(/images/sprites.png) 0 -400px no-repeat;
+  background: url(../images/sprites.png) 0 -400px no-repeat;
 }
 
 
@@ -190,7 +190,7 @@ header p.github a{
   margin-top: 50px;
   margin-bottom: 50px;
   height: 19px;
-  background: url(/images/sprites.png) 0 -200px repeat-x;
+  background: url(../images/sprites.png) 0 -200px repeat-x;
   border: none;
 }
 .intro .hr-seal {
@@ -200,7 +200,7 @@ header p.github a{
   left: 50%;
   width: 38px;
   height: 38px;
-  background: url(/images/sprites.png) 0 -300px no-repeat;
+  background: url(../images/sprites.png) 0 -300px no-repeat;
 }
 
 .intro .inner {
@@ -220,7 +220,7 @@ header p.github a{
   width: 311px;
   height: 31px;
   text-indent: -9999px;
-  background: url(/images/sprites.png) 0 -100px no-repeat;
+  background: url(../images/sprites.png) 0 -100px no-repeat;
 }
 
 p.subdued {
