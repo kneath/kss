@@ -2,7 +2,7 @@
 layout: content
 ---
 
-Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a documentation specification and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
+<p class="subdued">Inspired by <a href="http://tomdoc.org">TomDoc</a> KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a documentation specification and styleguide format. It is <strong>not</strong> a preprocessor, CSS framework, naming convention, or specificity guideline.</p>
 
 ## Purpose
 

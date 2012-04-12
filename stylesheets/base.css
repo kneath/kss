@@ -44,6 +44,10 @@ table {
 p {
   margin: 1em 0;
 }
+strong {
+  color: #333;
+  font-weight: bold;
+}
 
 
 
@@ -219,7 +223,7 @@ header p.github a{
   background: url(/images/sprites.png) 0 -100px no-repeat;
 }
 
-.intro p.subdued {
+p.subdued {
   color: #999;
 }
 
