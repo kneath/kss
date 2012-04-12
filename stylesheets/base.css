@@ -58,6 +58,11 @@ body {
   background: #fff;
 }
 
+.inner {
+  margin: 0 auto;
+  width: 1000px;
+}
+
 a {
   font-weight: bold;
   color: #0092c2;
@@ -69,7 +74,22 @@ a:hover {
 
 code {
   font-size: 13px;
-  font-family: "Monaco";
+  font-family: "Menlo";
+}
+
+footer {
+  margin: 30px auto;
+  width: 1000px;
+  border-top: 1px solid #eee;
+  color: #999;
+  text-align: center;
+}
+footer p {
+  font-size: 12px;
+}
+footer a {
+  color: #666;
+  font-weight: normal;
 }
 
 
@@ -85,11 +105,6 @@ header {
   background: #E62E15;
   border-bottom: 1px solid #C72811;
   box-shadow: 0 0 10px rgba(0,0,0,0.125);
-}
-
-header .inner {
-  margin: 0 auto;
-  width: 1000px;
 }
 
 header a.logo {
@@ -165,6 +180,7 @@ header p.github a{
 
 .intro hr {
   margin-top: 50px;
+  margin-bottom: 50px;
   height: 19px;
   background: url(/images/sprites.png) 0 -200px repeat-x;
   border: none;
@@ -180,8 +196,6 @@ header p.github a{
 }
 
 .intro .inner {
-  margin: 0 auto;
-  width: 1000px;
   overflow: auto;
 }
 .intro .description {
@@ -203,4 +217,38 @@ header p.github a{
 
 .intro p.subdued {
   color: #999;
+}
+
+
+
+/*----------------------------------------------------------------------------
+  Main Content
+----------------------------------------------------------------------------*/
+
+h2 {
+  margin-bottom: -5px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #000;
+}
+
+p {
+  margin: 1.5em 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.three-col {
+  overflow: auto;
+}
+.three-col .column {
+  float: left;
+  width:314px;
+  margin-left: 30px;
+}
+.three-col .left {
+  margin-left :0;
+}
+.three-col .middle {
+  width: 312px;
 }
