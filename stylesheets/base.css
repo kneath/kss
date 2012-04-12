@@ -142,3 +142,28 @@ header p.github a{
   border: none;
   background: url(/images/sprites.png) 0 -400px no-repeat;
 }
+
+
+
+/*----------------------------------------------------------------------------
+  Intro & Ruler
+----------------------------------------------------------------------------*/
+
+.intro {
+  position: relative;
+}
+
+.intro hr {
+  height: 19px;
+  background: url(/images/sprites.png) 0 -200px repeat-x;
+  border: none;
+}
+.intro .hr-seal {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  background: url(/images/sprites.png) 0 -300px no-repeat;
+}
