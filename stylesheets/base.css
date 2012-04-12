@@ -272,3 +272,27 @@ p {
   font-size: 24px;
   color: #000;
 }
+
+.content h2 {
+  margin-top: 4em;
+}
+
+.content h3 {
+  margin: 2em 0 1em 0;
+  color: #000;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.content pre {
+  margin-left: -21px;
+  width: 100%;
+  padding: 20px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.content img {
+  max-width: 100%;
+}
