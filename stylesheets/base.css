@@ -139,6 +139,10 @@ header nav a {
   -webkit-font-smoothing: antialised;
   text-shadow: 0 -1px rgba(0,0,0,0.4);
   border-bottom: 1px solid #FF421D;
+
+  -webkit-transition: border-color;
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 250ms;
 }
 header nav a:hover {
   text-decoration: none;
