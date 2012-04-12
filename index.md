@@ -85,3 +85,7 @@ a.button.star{
     </p>
   </div>
 </div>
+
+<script type="text/javascript">
+  document.getElementById('nav-introduction').className = 'selected'
+</script>

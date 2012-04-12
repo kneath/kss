@@ -193,3 +193,7 @@ This styleguide is automatically generated from KSS documentation using the ruby
 The actual templates generating the styleguide just reference the Styleguide section and example HTML. The modified states are generated automatically. Refer to the README for more information on how to generate styleguides using the KSS ruby library.
 
 Overall, keep in mind that styleguides should adapt to the application they are referencing and be easy to maintain and as automatic as possible.
+
+<script type="text/javascript">
+  document.getElementById('nav-syntax').className = 'selected'
+</script>
