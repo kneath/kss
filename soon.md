@@ -56,7 +56,7 @@ a.button.star{
       KSS’s documentation syntax is human readable, but just structured enough to be machine parsable.
     </p>
     <p>
-      And it takes less than 5 minutes to <a href="/syntax">learn the syntax</a>.
+      And it takes less than 5 minutes to <a href="/kss/syntax">learn the syntax</a>.
     </p>
   </div>
 
@@ -81,7 +81,7 @@ a.button.star{
     </p>
 
     <p>
-      Learn how to <a href="/styleguides">generate a living styleguide</a> for your project.
+      Learn how to <a href="/kss/styleguides">generate a living styleguide</a> for your project.
     </p>
   </div>
 </div>
