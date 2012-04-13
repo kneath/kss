@@ -3,7 +3,7 @@
   KssStateGenerator = (function() {
     function KssStateGenerator() {
       var idx, idxs, pseudos, replaceRule, rule, stylesheet, _i, _len, _len2, _ref, _ref2;
-      pseudos = /(\:hover|\:disabled|\:active|\:visited)/g;
+      pseudos = /(\:hover|\:disabled|\:active|\:visited|\:focus)/g;
       try {
         _ref = document.styleSheets;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
