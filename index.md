@@ -12,7 +12,7 @@ layout: default
         Documentation for any flavor of CSS that you’ll love to write. Human readable, machine parsable, and easy to remember.
       </p>
       <p class="subdued">
-        Works great with CSS, SCSS, LESS, PHP, Ruby,  Python,  Java, or plain old static files.
+        Works great with CSS, SCSS, LESS, and much more.
       </p>
     </div>
 
@@ -64,9 +64,6 @@ a.button.star{
     <h2>Works with SCSS, LESS, and more</h2>
     <p>
       KSS is designed to work with every flavor of CSS out there — preprocessor or not. Choose whatever works for you.
-    </p>
-    <p>
-      And it doesn’t matter if your website is running Java, PHP or assembly — KSS doesn’t care. Generate styleguides as static files and you’re good to go with (almost) any webserver on the planet.
     </p>
   </div>
 
