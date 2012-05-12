@@ -82,6 +82,7 @@ code {
 }
 
 footer {
+  clear: both;
   margin: 30px auto;
   width: 1000px;
   border-top: 1px solid #eee;
@@ -267,6 +268,20 @@ p {
   width: 700px;
   line-height: 1.5;
 }
+.content.with-image {
+  width: 600px;
+  padding-left: 400px;
+}
+
+.content.with-image img.page-image {
+  float: left;
+  margin-left: -400px;
+  margin-bottom: 30px;
+  width: 370px;
+  padding: 2px;
+  border: 1px solid #eee;
+}
+
 .content p {
   font-size: 14px;
 }
@@ -280,6 +295,9 @@ p {
 
 .content h2 {
   margin-top: 4em;
+}
+.content.with-image h2 {
+  margin-top: 2em;
 }
 
 .content h3 {
