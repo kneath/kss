@@ -184,15 +184,7 @@ The styleguide should be organized by numbered sections. These sections can go a
 
 The goal here is to create an organizational structure that is flexible, but  rigid enough to be machine processed and referenced inside of documentation.
 
-### Example
-
-This styleguide is automatically generated from KSS documentation using the ruby library.
-
-![](http://share.kyleneath.com/captures/Styleguide_-_GitHub_Team-20111202-160539.png)
-
-The actual templates generating the styleguide just reference the Styleguide section and example HTML. The modified states are generated automatically. Refer to the README for more information on how to generate styleguides using the KSS ruby library.
-
-Overall, keep in mind that styleguides should adapt to the application they are referencing and be easy to maintain and as automatic as possible.
+**[Learn more about generating styleguides.](/kss/styleguides)**
 
 <script type="text/javascript">
   document.getElementById('nav-syntax').className = 'selected'
