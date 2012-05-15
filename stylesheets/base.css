@@ -130,7 +130,7 @@ header nav ul {
 }
 header nav ul>li {
   list-style-type: none;
-  margin-right: 20px;
+  margin: 0 20px 0 0;
   float: left;
   height: 38px;
   line-height: 35px;
@@ -248,6 +248,29 @@ p {
   line-height: 1.5;
 }
 
+ul {
+  margin: 1.5em 0 1.5em 2em;
+}
+ul>li {
+  list-style-type: disc;
+  margin: 1em 0;
+}
+
+em {
+  font-style: italic;
+}
+
+.content p.warning {
+  padding: 15px;
+  font-size: 13px;
+  color: #C09853;
+  background: #FCF8E3;
+  border-radius: 4px;
+}
+.content p.warning strong {
+  color: #836530;
+}
+
 .three-col {
   overflow: auto;
 }
@@ -270,12 +293,12 @@ p {
 }
 .content.with-image {
   width: 600px;
-  padding-left: 400px;
+  padding-right: 400px;
 }
 
 .content.with-image img.page-image {
-  float: left;
-  margin-left: -400px;
+  float: right;
+  margin-right: -400px;
   margin-bottom: 30px;
   width: 370px;
   padding: 2px;
@@ -308,12 +331,13 @@ p {
 }
 
 .content pre {
-  margin-left: -21px;
+  margin-left: -11px;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   background: #fafafa;
   border: 1px solid #eee;
-  border-radius: 5px;
+  border-radius: 4px;
+  overflow: auto;
 }
 
 .content img {
