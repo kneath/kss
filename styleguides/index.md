@@ -70,13 +70,13 @@ I usually create a simple partial and view helper to render styleguide sections.
   <% end %>
 
   <div class="styleguide-html">
-    <%= kss_block_html @example_html %>
+    <%= @example_html %>
   </div>
 
 </div>
 {% endhighlight %}
 
-Then, I have a view helper that uses this partial:
+Then, have a view helper that uses this partial:
 
 {% highlight ruby %}
 # For displaying a block documented with KSS.
@@ -94,6 +94,17 @@ def kss_block(section, &block)
     :modifiers => modifiers})
 end
 {% endhighlight %}
+
+Once you're done there, in each of the templates (buttons, forms, icons) you include the section number and the example HTML:
+
+{% highlight erb %}
+<% kss_block '1.1' do %>
+  <button class="classy$modifier_class"><span>Button (button.classy)</span></button>
+  <a href="#" class="button classy$modifier_class"><span>Button (a.button.classy)</span></a>
+<% end %>
+{% endhighlight %}
+
+As you can tell, this is all still **really gross** to set up. But we're just starting here! [Contribute](https://github.com/kneath/kss) and help make KSS better.
 
 ## Other resources
 
