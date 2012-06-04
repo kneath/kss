@@ -14,7 +14,7 @@
             rule = _ref2[idx];
             if ((rule.type === CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)) {
               replaceRule = function(matched, stuff) {
-                return ".pseudo-class-" + matched.replace(':', '');
+                return ".pseudo-class-" + matched.replace(/\:/g, '');
               };
               this.insertRule(rule.cssText.replace(pseudos, replaceRule));
             }
