@@ -15,9 +15,9 @@ class KssStateGenerator
       for stylesheet in document.styleSheets
         idxs = []
         for rule, idx in stylesheet.cssRules
-          if (rule.type == CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)
+          while (rule.type == CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)
             replaceRule = (matched, stuff) ->
-              return ".pseudo-class-" + matched.replace(':', '')
+              return matched.replace(/\:/g, '.pseudo-class-')
             @insertRule(rule.cssText.replace(pseudos, replaceRule))
 
   # Takes a given style and attaches it to the current page.
