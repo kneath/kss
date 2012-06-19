@@ -4,6 +4,8 @@ class SectionTest < Kss::Test
 
   def setup
     @comment_text = <<comment
+# Form Button
+
 Your standard form button.
 
 :hover    - Highlights when hovering.
@@ -18,7 +20,7 @@ comment
   end
 
   test "parses the description" do
-    assert_equal "Your standard form button.", @section.description
+    assert_equal "# Form Button\n\nYour standard form button.", @section.description
   end
 
   test "parses the modifiers" do
