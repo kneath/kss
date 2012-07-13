@@ -10,14 +10,16 @@ module Kss
     # within the directory recursively for any comment blocks that look like
     # KSS.
     #
-    # base_path - The path String where style files are located.
-    def initialize(base_path)
+    # paths - Each path String where style files are located.
+    def initialize(*paths)
       @sections = {}
 
-      Dir["#{base_path}/**/*.*"].each do |filename|
-        parser = CommentParser.new(filename)
-        parser.blocks.each do |comment_block|
-          add_section comment_block, filename if self.class.kss_block?(comment_block)
+      paths.each do |path|
+        Dir["#{path}/**/*.*"].each do |filename|
+          parser = CommentParser.new(filename)
+          parser.blocks.each do |comment_block|
+            add_section comment_block, filename if self.class.kss_block?(comment_block)
+          end
         end
       end
     end
