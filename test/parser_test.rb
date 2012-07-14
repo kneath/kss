@@ -7,6 +7,7 @@ class ParserTest < Kss::Test
     @sass_parsed = Kss::Parser.new('test/fixtures/sass')
     @css_parsed = Kss::Parser.new('test/fixtures/css')
     @less_parsed = Kss::Parser.new('test/fixtures/less')
+    @multiple_parsed = Kss::Parser.new('test/fixtures/scss', 'test/fixtures/less')
 
     @css_comment = <<comment
 /*
@@ -102,6 +103,10 @@ comment
 
   test "public sections returns hash of sections" do
     assert_equal 2, @css_parsed.sections.count
+  end
+
+  test "parse multiple paths" do
+    assert_equal 6, @multiple_parsed.sections.count
   end
 
 end
