@@ -78,7 +78,7 @@ a:hover {
 
 code {
   font-size: 13px;
-  font-family: "Menlo";
+  font-family: "Menlo", monospace;
 }
 
 footer {
