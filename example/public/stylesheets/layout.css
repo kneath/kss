@@ -136,5 +136,8 @@ h1.styleguide {
       font-size: 12px;
       font-weight: normal;
       color: #222; }
+  .styleguide-example > .styleguide-code {
+    font-family: Monaco, monospace;
+  }
 
 /* @end */
