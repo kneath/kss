@@ -17,6 +17,7 @@ helpers do
   def styleguide_block(section, &block)
     @section = @styleguide.section(section)
     @example_html = capture{ block.call }
+    @escaped_html = ERB::Util.html_escape @example_html
     @_out_buf << erb(:_styleguide_block)
   end
 
