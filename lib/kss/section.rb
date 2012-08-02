@@ -34,12 +34,8 @@ module Kss
     def section
       return @section unless @section.nil?
 
-      comment_sections.each do |text|
-        if text =~ /Styleguide \d/i
-          cleaned = text.strip.sub(/\.$/, '') # Kill trailing period
-          @section = cleaned.match(/Styleguide (.+)/)[1]
-        end
-      end
+      cleaned  = section_comment.strip.sub(/\.$/, '') # Kill trailing period
+      @section = cleaned.match(/Styleguide (.+)/)[1]
 
       @section
     end
@@ -48,7 +44,10 @@ module Kss
     #
     # Returns the description String.
     def description
-      comment_sections.first
+      comment_sections.reject do |section|
+        section == section_comment ||
+        section == modifiers_comment
+      end.join("\n\n")
     end
 
     # Public: The modifiers section of a styleguide comment block.
@@ -57,9 +56,10 @@ module Kss
     def modifiers
       last_indent = nil
       modifiers = []
-      return modifiers unless comment_sections[1]
 
-      comment_sections[1].split("\n").each do |line|
+      return modifiers unless modifiers_comment
+
+      modifiers_comment.split("\n").each do |line|
         next if line.strip.empty?
         indent = line.scan(/^\s*/)[0].to_s.size
 
@@ -76,5 +76,18 @@ module Kss
       modifiers
     end
 
+  private
+  
+    def section_comment
+      comment_sections.find do |text|
+        text =~ /Styleguide \d/i
+      end.to_s
+    end
+  
+    def modifiers_comment
+      comment_sections[1..-1].reject do |section|
+        section == section_comment
+      end.last
+    end
   end
 end
