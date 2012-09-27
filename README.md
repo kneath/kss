@@ -7,7 +7,7 @@ Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology f
 
 ## KSS in a nutshell
 
-The methodology and ideas behind Knyle Style Sheets are contained in [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). At it's core, KSS is a documenting syntax for CSS.
+The methodology and ideas behind Knyle Style Sheets are contained in [SPEC.md](https://github.com/kneath/kss/blob/master/SPEC.md). At its core, KSS is a documenting syntax for CSS.
 
 ```css
 /*
