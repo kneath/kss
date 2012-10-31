@@ -58,15 +58,19 @@ module Kss
     # Public: Initializes a new comment parser object. Does not parse on
     # initialization.
     #
-    # file_path - The location of the file to parse as a String.
-    # options   - Optional options hash.
+    # file_path_or_string_input - The location of the file to parse as a String, or the String itself.
+    # options                   - Optional options hash.
     #   :preserve_whitespace - Preserve the whitespace before/after comment
     #                          markers (default:false).
     #
-    def initialize(file_path, options={})
+    def initialize(file_path_or_string_input, options={})
       @options = options
       @options[:preserve_whitespace] = false if @options[:preserve_whitespace].nil?
-      @file_path = file_path
+      if File.exists?(file_path_or_string_input)
+        @file_path = file_path_or_string_input
+      else
+        @string_input = file_path_or_string_input
+      end
       @blocks = []
       @parsed = false
     end
@@ -80,52 +84,58 @@ module Kss
       @parsed ? @blocks : parse_blocks
     end
 
-
     # Parse the file for comment blocks and populate them into @blocks.
     #
     # Returns an Array  of parsed comment Strings.
     def parse_blocks
-      File.open @file_path do |file|
-        current_block = nil
-        inside_single_line_block = false
-        inside_multi_line_block  = false
+      if !@file_path.nil?
+        File.open @file_path do |file|
+          parse_blocks_input(file)
+        end
+      else
+        parse_blocks_input(@string_input)
+      end
+    end
 
-        file.each_line do |line|
-          # Parse single-line style
-          if self.class.single_line_comment?(line)
-            parsed = self.class.parse_single_line line
-            if inside_single_line_block
-              current_block += "\n#{parsed}"
-            else
-              current_block = parsed.to_s
-              inside_single_line_block = true
-            end
-          end
+    def parse_blocks_input(input)
+      current_block = nil
+      inside_single_line_block = false
+      inside_multi_line_block  = false
 
-          # Parse multi-lines tyle
-          if self.class.start_multi_line_comment?(line) || inside_multi_line_block
-            parsed = self.class.parse_multi_line line
-            if inside_multi_line_block
-              current_block += "\n#{parsed}"
-            else
-              current_block = parsed
-              inside_multi_line_block = true
-            end
-          end
-
-          # End a multi-line block if detected
-          inside_multi_line_block = false if self.class.end_multi_line_comment?(line)
-
-          # Store the current block if we're done
-          unless self.class.single_line_comment?(line) || inside_multi_line_block
-            @blocks << normalize(current_block) unless current_block.nil?
-
-            inside_single_line_block = false
-            current_block = nil
+      input.each_line do |line|
+        # Parse single-line style
+        if self.class.single_line_comment?(line)
+          parsed = self.class.parse_single_line line
+          if inside_single_line_block
+            current_block += "\n#{parsed}"
+          else
+            current_block = parsed.to_s
+            inside_single_line_block = true
           end
         end
-      end
 
+        # Parse multi-lines tyle
+        if self.class.start_multi_line_comment?(line) || inside_multi_line_block
+          parsed = self.class.parse_multi_line line
+          if inside_multi_line_block
+            current_block += "\n#{parsed}"
+          else
+            current_block = parsed
+            inside_multi_line_block = true
+          end
+        end
+
+        # End a multi-line block if detected
+        inside_multi_line_block = false if self.class.end_multi_line_comment?(line)
+
+        # Store the current block if we're done
+        unless self.class.single_line_comment?(line) || inside_multi_line_block
+          @blocks << normalize(current_block) unless current_block.nil?
+
+          inside_single_line_block = false
+          current_block = nil
+        end
+      end
       @parsed = true
       @blocks
     end
