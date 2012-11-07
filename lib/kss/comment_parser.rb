@@ -84,15 +84,17 @@ module Kss
       @parsed ? @blocks : parse_blocks
     end
 
-    # Parse the file for comment blocks and populate them into @blocks.
+    # Parse the file or string for comment blocks and populate them into @blocks.
     #
-    # Returns an Array  of parsed comment Strings.
+    # Returns an Array of parsed comment Strings.
     def parse_blocks
       if !@file_path.nil?
+        # the input is an existing file
         File.open @file_path do |file|
           parse_blocks_input(file)
         end
       else
+        # @file_path is nil, we then expect the input to be a String
         parse_blocks_input(@string_input)
       end
     end
