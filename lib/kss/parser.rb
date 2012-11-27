@@ -15,7 +15,7 @@ module Kss
       @sections = {}
 
       paths.each do |path|
-        Dir["#{path}/**/*.*"].each do |filename|
+        Dir["#{path}/**/*.{css,less,sass,scss}"].each do |filename|
           parser = CommentParser.new(filename)
           parser.blocks.each do |comment_block|
             add_section comment_block, filename if self.class.kss_block?(comment_block)
