@@ -20,6 +20,8 @@
       <%= @example_html.sub('$modifier_class', " #{modifier.class_name}") %>
     </div>
   <% end %>
-  <pre class="styleguide-code"><%= @escaped_html %></pre>
+  <div class="styleguide-html">
+    <pre class="styleguide-code"><%= @escaped_html %></pre>
+  </div>
 
 </div>
