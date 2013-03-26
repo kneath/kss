@@ -2,7 +2,8 @@ module Kss
   # Public: The main KSS parser. Takes a directory full of SASS / SCSS / CSS
   # files and parses the KSS within them.
   class Parser
-    
+    STYLEGUIDE_PATTERN = (/Styleguide [[:alnum:]]/i).freeze
+
     # Public: Returns a hash of Sections.
     attr_accessor :sections
     
@@ -38,7 +39,7 @@ module Kss
       return false unless cleaned_comment.is_a? String
 
       possible_reference = cleaned_comment.split("\n\n").last
-      possible_reference =~ /Styleguide \d/
+      possible_reference =~ STYLEGUIDE_PATTERN
     end
 
     # Public: Finds the Section for a given styleguide reference.
