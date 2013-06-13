@@ -1,7 +1,7 @@
 source :rubygems
 
 group :test do
-  gem "minitest", "~> 1.5.0"
+  gem "minitest", "~> 5.0.4"
 end
 
 group :development do
