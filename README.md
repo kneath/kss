@@ -31,7 +31,7 @@ a.button.star.disabled{
 }
 ```
 
-## Ruby Library
+## Ruby Library [![Build Status](https://travis-ci.org/kneath/kss.png)](https://travis-ci.org/kneath/kss)
 
 This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS documented with KSS guidelines. To use the library, include it in your project as a gem from <https://rubygems.org/gems/kss>. Then, create a parser and explore your KSS.
 
