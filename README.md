@@ -1,4 +1,4 @@
-# Knyle Style Sheets
+# Knyle Style Sheets [![Build Status](https://travis-ci.org/kneath/kss.png)](https://travis-ci.org/kneath/kss)
 
 Inspired by [TomDoc](http://tomdoc.org), KSS attempts to provide a methodology for writing maintainable, documented CSS within a team. Specifically, KSS is a documentation specification and styleguide format. It is **not** a preprocessor, CSS framework, naming convention, or specificity guideline.
 
