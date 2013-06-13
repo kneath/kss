@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'kss'
 
 module Kss
-  class Test < Minitest::Test
+  class Test < ::Minitest::Test
     def self.test(name, &block)
       define_method("test_#{name.gsub(/\W/,'_')}", &block) if block
     end
