@@ -1,7 +1,7 @@
 # This class scans your stylesheets for pseudo classes, then inserts a new CSS
 # rule with the same properties, but named 'psuedo-class-{{name}}'.
 #
-# Supported pseudo classes: hover, disabled, active, visited, focus.
+# Supported pseudo classes: hover, disabled, active, visited, focus, target.
 #
 # Example:
 #
@@ -9,7 +9,7 @@
 #   => a.pseudo-class-hover{ color:blue; }
 class KssStateGenerator
   constructor: ->
-    pseudos = /(\:hover|\:disabled|\:active|\:visited|\:focus)/g
+    pseudos = /(\:hover|\:disabled|\:active|\:visited|\:focus|\:target)/g
 
     try
       for stylesheet in document.styleSheets
