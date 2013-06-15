@@ -4,7 +4,7 @@
   KssStateGenerator = (function() {
 
     function KssStateGenerator() {
-      var idx, idxs, pseudos, replaceRule, rule, stylesheet, _i, _j, _len, _len1, _ref, _ref1;
+      var idx, idxs, pseudos, replaceRule, rule, stylesheet, _i, _len, _len2, _ref, _ref2;
       pseudos = /(\:hover|\:disabled|\:active|\:visited|\:focus)/g;
       try {
         _ref = document.styleSheets;
@@ -12,9 +12,9 @@
           stylesheet = _ref[_i];
           if (stylesheet.href.indexOf(document.domain) >= 0) {
             idxs = [];
-            _ref1 = stylesheet.cssRules;
-            for (idx = _j = 0, _len1 = _ref1.length; _j < _len1; idx = ++_j) {
-              rule = _ref1[idx];
+            _ref2 = stylesheet.cssRules;
+            for (idx = 0, _len2 = _ref2.length; idx < _len2; idx++) {
+              rule = _ref2[idx];
               if ((rule.type === CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)) {
                 replaceRule = function(matched, stuff) {
                   return matched.replace(/\:/g, '.pseudo-class-');
