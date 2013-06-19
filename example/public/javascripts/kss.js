@@ -2,10 +2,13 @@
   var KssStateGenerator;
 
   KssStateGenerator = (function() {
+    var psuedo_selectors;
+
+    psuedo_selectors = ['hover', 'enabled', 'disabled', 'active', 'visited', 'focus', 'target', 'checked', 'empty', 'first-of-type', 'last-of-type', 'first-child', 'last-child'];
 
     function KssStateGenerator() {
       var idx, idxs, pseudos, replaceRule, rule, stylesheet, _i, _len, _len2, _ref, _ref2;
-      pseudos = /(\:hover|\:disabled|\:active|\:visited|\:focus|\:target)/g;
+      pseudos = new RegExp("(\\:" + (psuedo_selectors.join('|\\:')) + ")", "g");
       try {
         _ref = document.styleSheets;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
