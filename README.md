@@ -62,7 +62,38 @@ styleguide.section('2.1.1').modifiers.first.class_name
 
 styleguide.section('2.1.1').modifiers.first.description
 # => 'Subtle hover highlight'
+```
 
+You can also initialize the `Kss::Parser` with a string CSS by using `Kss::Parser.new(string)`
+
+```ruby
+buttons =<<-'EOS'
+  /*
+  Your standard form button.
+
+  :hover    - Highlights when hovering.
+  :disabled - Dims the button when disabled.
+
+  Styleguide 1.1
+  */
+  button {
+    padding: 5px 15px;
+    line-height: normal;
+    /* ... */
+  }
+  button:disabled {
+    opacity: 0.5;
+  }
+EOS
+styleguide = Kss::Parser.new(buttons)
+
+styleguide.section('1.1')
+# => <Kss::Section>
+
+styleguide.section('1.1.1').description
+# => "Your standard form button."
+
+# ...
 ```
 
 The library is also fully TomDoc'd, completing the circle of life.

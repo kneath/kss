@@ -6,26 +6,37 @@ module Kss
 
     # Public: Returns a hash of Sections.
     attr_accessor :sections
-    
-    # Public: Initializes a new parser based on a directory of files. Scans
-    # within the directory recursively for any comment blocks that look like
-    # KSS.
+
+    # Public: Initializes a new parser based on a directory of files or kss strings.
+    # Scans within the directory recursively or the strings for any comment blocks
+    # that look like KSS.
     #
-    # paths - Each path String where style files are located.
-    def initialize(*paths)
+    # paths_or_strings - Each path String where style files are located, or each String containing KSS.
+    def initialize(*paths_or_strings)
       @sections = {}
 
-      paths.each do |path|
-        Dir["#{path}/**/*.{css,less,sass,scss}"].each do |filename|
-          parser = CommentParser.new(filename)
+      paths_or_strings.each do |path_or_string|
+        if Dir.exists?(path_or_string)
+          # argument is a path
+          path = path_or_string
+          Dir["#{path}/**/*.{css,less,sass,scss}"].each do |filename|
+            parser = CommentParser.new(filename)
+            parser.blocks.each do |comment_block|
+              add_section comment_block, filename if self.class.kss_block?(comment_block)
+            end
+          end
+        else
+          # argument is a KSS string
+          kss_string = path_or_string
+          parser = CommentParser.new(kss_string)
           parser.blocks.each do |comment_block|
-            add_section comment_block, filename if self.class.kss_block?(comment_block)
+            add_section comment_block if self.class.kss_block?(comment_block)
           end
         end
       end
     end
 
-    def add_section comment_text, filename
+    def add_section comment_text, filename = ''
       base_name = File.basename(filename)
       section = Section.new(comment_text, base_name)
       @sections[section.section] = section

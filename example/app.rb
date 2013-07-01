@@ -10,6 +10,42 @@ get '/styleguide' do
   erb :styleguide
 end
 
+get '/inline' do
+  buttons =<<-'EOS'
+    /*
+    Your standard form button.
+
+    :hover    - Highlights when hovering.
+    :disabled - Dims the button when disabled.
+
+    Styleguide 1.1
+    */
+    button {
+      padding: 5px 15px;
+      line-height: normal;
+      font-family: "Helvetica Neue", Helvetica;
+      font-size: 12px;
+      font-weight: bold;
+      color: #666;
+      text-shadow: 0 1px rgba(255, 255, 255, 0.9);
+      border-radius: 3px;
+      border: 1px solid #ddd;
+      border-bottom-color: #bbb;
+      background: #f5f5f5;
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+      background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e5e5e5));
+      background: -moz-linear-gradient(top, #f5f5f5, #e5e5e5);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: 0.5;
+    }
+  EOS
+  @styleguide = Kss::Parser.new(buttons)
+  erb :styleguide
+end
+
 helpers do
   # Generates a styleguide block. A little bit evil with @_out_buf, but
   # if you're using something like Rails, you can write a much cleaner helper

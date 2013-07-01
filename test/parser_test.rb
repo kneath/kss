@@ -83,4 +83,23 @@ class ParserTest < Kss::Test
     assert_equal 7, @multiple_parsed.sections.count
   end
 
+  test "parse from string" do
+    scss_input =<<-'EOS'
+    // Your standard form element.
+    //
+    // Styleguide 3.0.0
+    form {
+
+      // Your standard text input box.
+      //
+      // Styleguide 3.0.1
+      input[type="text"] {
+        border: 1px solid #ccc;
+      }
+    }
+    EOS
+    assert_equal "Your standard form element.", Kss::Parser.new(scss_input).section('3.0.0').description
+    assert_equal "Your standard text input box.", @sass_parsed.section('3.0.1').description
+  end
+
 end
