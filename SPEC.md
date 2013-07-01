@@ -109,7 +109,19 @@ If the UI element you are documenting has an example in the styleguide, you shou
 // Styleguide 2.1.3.
 ```
 
-References should be integer sections separated by periods. Each period denotes a hierarchy of the styleguide. Styleguide references can point to entire sections, a portion of the section, or a specific example.
+References can be integer sections separated by periods. Each period denotes a hierarchy of the styleguide. Styleguide references can point to entire sections, a portion of the section, or a specific example.
+
+References may also be period seperated word keys.  Leading words denote hierarchy.
+
+```scss
+// Styleguide Forms.Checkboxes.
+```
+
+Finally, references may be more readable word phrases.
+
+```scss
+// Styleguide Forms - Special Checkboxes
+```
 
 If there is no example, then you must note that there is no reference.
 

@@ -36,3 +36,25 @@ a.button.star {
     color: #ae7e00; }
   a.button.star.disabled {
     opacity: 0.5; }
+
+/*
+A big button
+
+.really-big - Even bigger button
+
+Styleguide Buttons.Big.
+*/
+a.button.big {
+  display: inline-block;
+  font-size: 10em; }
+  a.button.big.really-big {
+    font-size: 20em; }
+
+/*
+A button truly lime in color
+
+Styleguide Buttons - Truly Lime
+*/
+a.button.lime {
+  color: lime;
+}
