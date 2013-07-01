@@ -38,7 +38,7 @@ KSS can also support words as Styleguide section names
 // Styleguide Forms - Special Checkboxes.
 ```
 
-## Ruby Library [![Build Status](https://travis-ci.org/kneath/kss.png)](https://travis-ci.org/kneath/kss)
+## Ruby Library [![Build Status](https://travis-ci.org/kneath/kss.png)](https://travis-ci.org/kneath/kss) [![Code Climate](https://codeclimate.com/github/kneath/kss.png)](https://codeclimate.com/github/kneath/kss)
 
 This repository includes a ruby library suitable for parsing SASS, SCSS, and CSS documented with KSS guidelines. To use the library, include it in your project as a gem from <https://rubygems.org/gems/kss>. Then, create a parser and explore your KSS.
 
