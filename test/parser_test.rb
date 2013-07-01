@@ -8,57 +8,6 @@ class ParserTest < Kss::Test
     @css_parsed = Kss::Parser.new('test/fixtures/css')
     @less_parsed = Kss::Parser.new('test/fixtures/less')
     @multiple_parsed = Kss::Parser.new('test/fixtures/scss', 'test/fixtures/less')
-
-    @css_comment = <<comment
-/*
-A button suitable for giving stars to someone.
-
-.star-given - A highlight indicating you've already given a star.
-.disabled   - Dims the button to indicate it cannot be used.
-
-Styleguide 2.2.1.
-*/
-comment
-
-  @starred_css_comment = <<comment
-/* A button suitable for giving stars to someone.
- *
- * .star-given - A highlight indicating you've already given a star.
- * .disabled   - Dims the button to indicate it cannot be used.
- *
- * Styleguide 2.2.1. */
-comment
-
-  @slashed_css_comment = <<comment
-// A button suitable for giving stars to someone.
-//
-// .star-given - A highlight indicating you've already given a star.
-// .disabled   - Dims the button to indicate it cannot be used.
-//
-// Styleguide 2.2.1.
-comment
-
-  @indented_css_comment = <<comment
-  /*
-  A button suitable for giving stars to someone.
-
-  .star-given - A highlight indicating you've already given a star.
-  .disabled   - Dims the button to indicate it cannot be used.
-
-  Styleguide 2.2.1.
-  */
-comment
-
-  @cleaned_css_comment = <<comment
-A button suitable for giving stars to someone.
-
-.star-given - A highlight indicating you've already given a star.
-.disabled   - Dims the button to indicate it cannot be used.
-
-Styleguide 2.2.1.
-comment
-  @cleaned_css_comment.rstrip!
-
   end
 
   test "parses KSS comments in SCSS" do
