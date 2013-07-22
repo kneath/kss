@@ -102,4 +102,16 @@ class ParserTest < Kss::Test
     assert_equal "Your standard text input box.", @sass_parsed.section('3.0.1').description
   end
 
+  test "parse with no styleguide reference comment" do
+    scss_input =<<-'EOS'
+      // Nothing here
+      //
+      // No styleguide reference.
+      input[type="text"] {
+        border: 1px solid #ccc;
+      }
+    EOS
+
+    assert Kss::Parser.new(scss_input)
+  end
 end
