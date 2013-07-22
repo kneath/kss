@@ -2,7 +2,7 @@ module Kss
   # Public: The main KSS parser. Takes a directory full of SASS / SCSS / CSS
   # files and parses the KSS within them.
   class Parser
-    STYLEGUIDE_PATTERN = (/Styleguide [[:alnum:]]/i).freeze
+    STYLEGUIDE_PATTERN = (/(?<!No )Styleguide [[:alnum:]]/i).freeze
 
     # Public: Returns a hash of Sections.
     attr_accessor :sections
