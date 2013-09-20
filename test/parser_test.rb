@@ -76,7 +76,7 @@ class ParserTest < Kss::Test
   end
 
   test "public sections returns hash of sections" do
-    assert_equal 4, @css_parsed.sections.count
+    assert_equal 5, @css_parsed.sections.count
   end
 
   test "parse multiple paths" do

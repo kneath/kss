@@ -58,3 +58,12 @@ Styleguide Buttons - Truly Lime
 a.button.lime {
   color: lime;
 }
+
+/*
+A button truly lime in color
+
+Seen in styleguide 10.2
+*/
+a.button.tricksy {
+  background: sparkles;
+}
