@@ -77,13 +77,13 @@ module Kss
     end
 
   private
-  
+
     def section_comment
       comment_sections.find do |text|
         text =~ Parser::STYLEGUIDE_PATTERN
       end.to_s
     end
-  
+
     def modifiers_comment
       comment_sections[1..-1].reject do |section|
         section == section_comment
