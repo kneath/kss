@@ -99,7 +99,7 @@ class ParserTest < Kss::Test
     }
     EOS
     assert_equal "Your standard form element.", Kss::Parser.new(scss_input).section('3.0.0').description
-    assert_equal "Your standard text input box.", @sass_parsed.section('3.0.1').description
+    assert_equal "Your standard text input box.", Kss::Parser.new(scss_input).section('3.0.1').description
   end
 
   test "parse with no styleguide reference comment" do
