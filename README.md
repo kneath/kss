@@ -117,5 +117,5 @@ I apologize on behalf of the Ruby community for this, it's embarrassing and disa
 
 ## Implementations
 
-The KSS specification has also been implemented in [Python](https://github.com/seanbrant/pykss), [Node.js](https://github.com/hughsk/kss-node) and [PHP](https://github.com/scaninc/kss-php)
+The KSS specification has also been implemented in [Python](https://github.com/seanbrant/pykss), [Node.js](https://github.com/hughsk/kss-node), [PHP](https://github.com/scaninc/kss-php) and [Java] (https://github.com/revbingo/kss-java)
 
