@@ -28,10 +28,10 @@ class KssStateGenerator
 
     try
       for stylesheet in document.styleSheets
-        if stylesheet.href.indexOf(document.domain) >= 0
+        if stlylesheet.href and stylesheet.href.indexOf(document.domain) >= 0
           idxs = []
           for rule, idx in stylesheet.cssRules
-            if (rule.type == CSSRule.STYLE_RULE) && pseudos.test(rule.selectorText)
+            if (rule.type == CSSRule.STYLE_RULE) and pseudos.test(rule.selectorText)
               replaceRule = (matched, stuff) ->
                 return matched.replace(/\:/g, '.pseudo-class-')
               @insertRule(rule.cssText.replace(pseudos, replaceRule))
