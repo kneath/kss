@@ -90,7 +90,7 @@ styleguide = Kss::Parser.new(buttons)
 styleguide.section('1.1')
 # => <Kss::Section>
 
-styleguide.section('1.1.1').description
+styleguide.section('1.1').description
 # => "Your standard form button."
 
 # ...
