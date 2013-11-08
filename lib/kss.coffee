@@ -28,7 +28,7 @@ class KssStateGenerator
 
     try
       for stylesheet in document.styleSheets
-        if stlylesheet.href and stylesheet.href.indexOf(document.domain) >= 0
+        if stylesheet.href and stylesheet.href.indexOf(document.domain) >= 0
           idxs = []
           for rule, idx in stylesheet.cssRules
             if (rule.type == CSSRule.STYLE_RULE) and pseudos.test(rule.selectorText)
