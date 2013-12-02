@@ -8,7 +8,7 @@
 #   a:hover{ color:blue; }
 #   => a.pseudo-class-hover{ color:blue; }
 class KssStateGenerator
-  psuedo_selectors = [
+  pseudo_selectors = [
     'hover',
     'enabled',
     'disabled',
@@ -24,7 +24,7 @@ class KssStateGenerator
     'last-child']
 
   constructor: ->
-    pseudos = new RegExp "(\\:#{psuedo_selectors.join('|\\:')})", "g"
+    pseudos = new RegExp "(\\:#{pseudo_selectors.join('|\\:')})", "g"
 
     try
       for stylesheet in document.styleSheets
