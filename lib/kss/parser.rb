@@ -2,8 +2,6 @@ module Kss
   # Public: The main KSS parser. Takes a directory full of SASS / SCSS / CSS
   # files and parses the KSS within them.
   class Parser
-    STYLEGUIDE_PATTERN = (/(?<!No )Styleguide [[:alnum:]]/i).freeze
-
     # Public: Returns a hash of Sections.
     attr_accessor :sections
 
@@ -30,13 +28,13 @@ module Kss
           kss_string = path_or_string
           parser = CommentParser.new(kss_string)
           parser.blocks.each do |comment_block|
-            add_section comment_block if self.class.kss_block?(comment_block)
+            add_section(comment_block) if self.class.kss_block?(comment_block)
           end
         end
       end
     end
 
-    def add_section comment_text, filename = ''
+    def add_section(comment_text, filename = '')
       base_name = File.basename(filename)
       section = Section.new(comment_text, base_name)
       @sections[section.section] = section
